@@ -1,10 +1,41 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Renderer2,
+  HostListener,
+  Inject,
+} from "@angular/core";
+import { Location } from "@angular/common";
+import { DOCUMENT } from "@angular/common";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
-  title = 'm1p10mean-Mendrika-Haendel';
+export class AppComponent implements OnInit {
+  constructor(
+    private renderer: Renderer2,
+    public location: Location,
+    @Inject(DOCUMENT) document
+  ) {}
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll(e) {
+    if (window.pageYOffset > 100) {
+      var element = document.getElementById("navbar-top");
+      if (element) {
+        element.classList.remove("navbar-transparent");
+        element.classList.add("bg-dark");
+      }
+    } else {
+      var element = document.getElementById("navbar-top");
+      if (element) {
+        element.classList.add("navbar-transparent");
+        element.classList.remove("bg-dark");
+      }
+    }
+  }
+  ngOnInit() {
+    this.onWindowScroll(event);
+  }
 }
