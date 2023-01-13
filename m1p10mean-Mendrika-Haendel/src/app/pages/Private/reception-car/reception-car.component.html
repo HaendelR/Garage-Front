@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="page-header">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <h1>Liste des vehicules à l'accueil</h1>
+                    <table border="2" class="table">
+                        <tr>
+                            <th>Plaque</th>
+                            <th>Marque</th>
+                            <th>Couleur</th>
+                            <th>Nom et Prénom(s) du client</th>
+                            <th>Date de dépot</th>
+                        </tr>
+
+                        <tr *ngFor="let car of carDepot; let i = index" [class.active]="i == currentIndex"
+                            (click)="setActiveTutorial(car, i)">
+                            <td>{{ car.numberPlate }}</td>
+                            <td>{{ car.carMark }}</td>
+                            <td>{{ car.color }}</td>
+                            <td>{{ car.clientName }} {{ car.clientSurname }}</td>
+                            <td>{{ car.dateTimeDepot }}</td>
+                            <td><button class="btn-success"><a style="color:white;"
+                                        [routerLink]="['/contact-us']">Diagnostiquer</a></button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

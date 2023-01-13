@@ -21,6 +21,8 @@ import { IndexComponent } from "./index/index.component";
 import { ProfilepageComponent } from "./Private/profilepage/profilepage.component";
 import { RegisterpageComponent } from "./Public/registerpage/registerpage.component";
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
+import { ReceptionCarComponent } from "./Private/reception-car/reception-car.component";
+import { FormCarProblemComponent } from './Private/form-car-problem/form-car-problem.component';
 
 @NgModule({
   imports: [
@@ -39,20 +41,22 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
     AlertModule.forRoot(),
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
   declarations: [
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    ReceptionCarComponent,
+    FormCarProblemComponent,
   ],
   exports: [
     IndexComponent,
     ProfilepageComponent,
     RegisterpageComponent,
-    LandingpageComponent
+    LandingpageComponent,
   ],
-  providers: []
+  providers: [],
 })
 export class PagesModule {}
