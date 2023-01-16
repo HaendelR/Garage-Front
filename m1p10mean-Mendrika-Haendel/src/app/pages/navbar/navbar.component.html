@@ -1,0 +1,33 @@
+<div id="mySidepanel" class="sidepanel">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="index.html">Home </a>
+  <a href="#about">About</a>
+  <a href="#service">Services  </a>
+  <a href="#vehicles">Our Vehicles</a>
+  <a href="#testimonial">Testimonial</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<header>
+  <!-- header inner -->
+  <div class="header">
+     <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-4 col-sm-4">
+              <div class="logo">
+                 <a href="index.html"><img src="./assets/images/logo.png" alt="#" /></a>
+              </div>
+           </div>
+           <div *ngIf="checkbar" class="col-md-8 col-sm-8">
+              <div class="right_bottun">
+                 <ul class="conat_info d_none ">
+                    <li><a href="#"><i class="fa fa-user" role="button" (click)="logout()" aria-hidden="true" style="background-color: #0f98f8;"></i></a></li>
+                    <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true" style="background-color: #0f98f8;"></i></a></li> -->
+                 </ul>
+                 <button class="openbtn" onclick="openNav()"><img src="./assets/images/menu_icon.png" alt="#"/> </button>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</header>

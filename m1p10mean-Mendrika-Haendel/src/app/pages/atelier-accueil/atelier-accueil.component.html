@@ -1,0 +1,152 @@
+<app-navbar></app-navbar>
+
+
+<section id="vehicles" class="vehicles" style="height: 70%;">
+  <div class="container">
+     <div class="row">
+        <div class="col-md-12">
+           <div class="titlepage">
+              <h2>Véhicules à diagnostiquer</h2>
+              <p>La liste des véhicules à diagnostiquer pour une réparation.</p>
+           </div>
+        </div>
+     </div>
+  </div>
+
+
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th>Voiture</th>
+        <th>Client</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of carDepot">
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="./assets/images/voiture.png"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{a.carMark}} {{a.carModel}}</p>
+              <p class="badge badge-warning rounded-pill d-inline">{{a.numberPlate}}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">clientName clientSurname</p>
+          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
+        </td>
+        <td>
+          <p>Description</p>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success">
+            Diagnostiquer
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="./assets/images/voiture.png"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">carMark carMark</p>
+              <p class="badge badge-warning rounded-pill d-inline">numberPlate</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">clientName clientSurname</p>
+          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
+        </td>
+        <td>
+          <p>Description</p>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success">
+            Diagnostiquer
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="./assets/images/voiture.png"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">carMark carMark</p>
+              <p class="badge badge-warning rounded-pill d-inline">numberPlate</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">clientName clientSurname</p>
+          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
+        </td>
+        <td>
+          <p>Description</p>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success">
+            Diagnostiquer
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="./assets/images/voiture.png"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">carMark carMark</p>
+              <p class="badge badge-warning rounded-pill d-inline">numberPlate</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">clientName clientSurname</p>
+          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
+        </td>
+        <td>
+          <p>Description</p>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success">
+            Diagnostiquer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+     <a class="carousel-control-prev" href="#veh" role="button" data-slide="prev">
+     <i class="fa fa-angle-left" aria-hidden="true"></i>
+     </a>
+     <a class="carousel-control-next" href="#veh" role="button" data-slide="next">
+     <i class="fa fa-angle-right" aria-hidden="true"></i>
+     </a>
+
+
+</section>
+
