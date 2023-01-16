@@ -1,33 +1,31 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { BrowserModule } from "@angular/platform-browser";
-import { Routes, RouterModule } from "@angular/router";
-
-import { IndexComponent } from "./pages/index/index.component";
-import { ProfilepageComponent } from "./pages/Private/profilepage/profilepage.component";
-import { RegisterpageComponent } from "./pages/Public/registerpage/registerpage.component";
-import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
-import { ContactUspageComponent } from "./pages/Public/contactuspage/contactus.component";
-import { SigningPageComponent } from "./pages/Public/signingpage/signing.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AccueilComponent } from './pages/accueil/accueil.component';
+import { AtelierAccueilComponent } from './pages/atelier-accueil/atelier-accueil.component';
+import { ClientAccueilComponent } from './pages/client-accueil/client-accueil.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", component: IndexComponent },
-  { path: "profile", component: ProfilepageComponent },
-  { path: "register", component: RegisterpageComponent },
-  { path: "signing", component: SigningPageComponent },
-  { path: "contact-us", component: ContactUspageComponent },
-  { path: "landing", component: LandingpageComponent },
+  {
+    path: "",
+    component: AccueilComponent
+  },
+  {
+    path: "accueil-client",
+    component: ClientAccueilComponent
+  },
+  {
+    path: "accueil-atelier",
+    component: AtelierAccueilComponent
+  },
+  {
+    path: "inscription",
+    component: InscriptionComponent
+  }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true,
-    }),
-  ],
-  exports: [],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
