@@ -11,7 +11,6 @@ import { Server } from "../server";
 export class CarDepotService {
   constructor(
     private httpClient: HttpClient,
-    private userservice: AuthentificationService,
     private server: Server
   ) {}
   insertCarDepot(cardepot: CarDepot): Observable<CarDepot> {
@@ -31,8 +30,18 @@ export class CarDepotService {
 
   getCarDepotByMatricule(matricule: string | null): Observable<CarDepot> {
     const url =
-      `${this.server.getUrl()}/carDepot/carDepotByMatricule/` + matricule;
+      `${this.server.getUrl()}/carDepot/carDepotByMatriculeAndStatus/` + matricule;
 
     return this.httpClient.get<CarDepot>(url);
+  }
+
+  updateStatusCarDepot(matricule: string | null): Observable<any> {
+    const url = `${this.server.getUrl()}/carDepot/updateStatusCarDepot`;
+    var status = {
+      numberPlate: matricule,
+      status: "diagnostiquer"
+    };
+
+    return this.httpClient.put<any>(url, status);
   }
 }
