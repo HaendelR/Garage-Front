@@ -40,100 +40,18 @@
           </div>
         </td>
         <td>
-          <p class="fw-normal mb-1">clientName clientSurname</p>
-          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
+          <p class="fw-normal mb-1">{{a.clientName}} {{a.clientSurname}}</p>
+          <p class="badge badge-primary rounded-pill d-inline">{{a.clientContact}}</p>
         </td>
         <td>
-          <p>Description</p>
+          <p>{{a.description}}</p>
         </td>
         <td>
-          <button type="button" class="btn btn-success">
-            Diagnostiquer
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img
-                src="./assets/images/voiture.png"
-                alt=""
-                style="width: 45px; height: 45px"
-                class="rounded-circle"
-                />
-            <div class="ms-3">
-              <p class="fw-bold mb-1">carMark carMark</p>
-              <p class="badge badge-warning rounded-pill d-inline">numberPlate</p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">clientName clientSurname</p>
-          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
-        </td>
-        <td>
-          <p>Description</p>
-        </td>
-        <td>
-          <button type="button" class="btn btn-success">
-            Diagnostiquer
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img
-                src="./assets/images/voiture.png"
-                alt=""
-                style="width: 45px; height: 45px"
-                class="rounded-circle"
-                />
-            <div class="ms-3">
-              <p class="fw-bold mb-1">carMark carMark</p>
-              <p class="badge badge-warning rounded-pill d-inline">numberPlate</p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">clientName clientSurname</p>
-          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
-        </td>
-        <td>
-          <p>Description</p>
-        </td>
-        <td>
-          <button type="button" class="btn btn-success">
-            Diagnostiquer
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img
-                src="./assets/images/voiture.png"
-                alt=""
-                style="width: 45px; height: 45px"
-                class="rounded-circle"
-                />
-            <div class="ms-3">
-              <p class="fw-bold mb-1">carMark carMark</p>
-              <p class="badge badge-warning rounded-pill d-inline">numberPlate</p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">clientName clientSurname</p>
-          <p class="badge badge-primary rounded-pill d-inline">clientContact</p>
-        </td>
-        <td>
-          <p>Description</p>
-        </td>
-        <td>
-          <button type="button" class="btn btn-success">
-            Diagnostiquer
-          </button>
+          <form (ngSubmit)="valueCar(a)">
+            <button type="submit" class="btn btn-success">
+              Diagnostiquer
+            </button>
+          </form>
         </td>
       </tr>
     </tbody>

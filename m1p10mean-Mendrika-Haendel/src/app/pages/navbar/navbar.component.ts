@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+import { Users } from 'src/app/models/users';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +11,12 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit{
 
   checkbar= false;
+  me!: Users;
 
 
   constructor(
     private router : Router,
+    private authservice: AuthentificationService,
   ) { }
 
   check() {
@@ -24,12 +28,25 @@ export class NavbarComponent implements OnInit{
     }
   }
 
+  userme() {
+    this.authservice.userconnecte()
+    .subscribe({
+      next : data => {
+       this.me=data;
+      },
+      error: (e) => {
+        console.log(e.error);
+      }
+    });
+  }
+
   ngOnInit(): void {
     this.check();
+    this.userme();
   }
 
   logout() {
-    localStorage.setItem("tokenUser","");
+    localStorage.removeItem("tokenUser");
     this.router.navigate(['']);
   }
 

@@ -8,5 +8,6 @@ export interface CarDepot {
   carModel: string,
   numberPlate: string,
   color: string,
-  status: string
+  status: string,
+  description: string
 }

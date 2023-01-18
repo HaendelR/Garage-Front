@@ -19,9 +19,16 @@ export class CarDepotService {
   }
 
   getCarDepose(garageName: string | null, garageLocation: string | null): Observable<CarDepot[]> {
-    
+
     const urlcardepot= "http://localhost:3000/carDepot/carDepose/"+garageName+"/"+garageLocation;
 
     return this.httpClient.get<CarDepot[]>(urlcardepot);
   }
+
+  getCarDepotByMatricule(matricule: string | null): Observable<CarDepot> {
+    const url = "http://localhost:3000/carDepot/carDepotByMatricule/"+matricule;
+
+    return this.httpClient.get<CarDepot>(url);
+  }
+
 }

@@ -1,11 +1,15 @@
-<div id="mySidepanel" class="sidepanel">
+<div *ngIf="me?.role === 'client'" id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="index.html">Home </a>
-  <a href="#about">About</a>
-  <a href="#service">Services  </a>
-  <a href="#vehicles">Our Vehicles</a>
-  <a href="#testimonial">Testimonial</a>
-  <a href="#contact">Contact</a>
+  <a href="#">Saisie véhicule pour réparation </a>
+  <a href="#">Liste des diagnostiques </a>
+  <a href="#">Véhicules en réparations </a>
+</div>
+
+<div *ngIf="me?.role === 'respatelier'" id="mySidepanel" class="sidepanel">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#">Véhicules à diagnostiquer </a>
+  <a href="#">Véhicules en attente </a>
+  <a href="#">Véhicules en réparation </a>
 </div>
 
 <header>

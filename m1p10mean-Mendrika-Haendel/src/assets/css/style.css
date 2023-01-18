@@ -710,9 +710,9 @@ ul.conat_info li a:hover {
 /** testimonial section **/
 
 .testimonial {
-     padding: 90px 0 90px 0;
-     background-color: #0f98f8;
-     border-radius: 50px;
+     padding: 0px 0 0px 0;
+     background-color: #8ac2e8;
+     border-radius: 20px;
 }
 
 .testimonial .titlepage {
@@ -734,12 +734,12 @@ ul.conat_info li a:hover {
 
 .testimonial_box h3 {
      color: #fff;
-     font-size: 25px;
+     font-size: 17px;
      line-height: 36px;
      font-weight: 600;
      padding-top: 26px;
-     text-align: left;
-     padding-left: 20px;
+     /* text-align: left; */
+     /* padding-left: 20px; */
      display: table-cell;
 }
 
@@ -764,7 +764,7 @@ ul.conat_info li a:hover {
 
 .testimonial_box figure {
      margin: 0;
-     float: left;
+     /* float: left; */
 }
 
 #myCarousel .carousel-indicators {

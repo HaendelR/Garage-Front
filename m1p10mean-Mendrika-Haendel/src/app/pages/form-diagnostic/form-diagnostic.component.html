@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+<section id="vehicles" class="vehicles" style="height: 70%;">
+
+  <div class="container">
+    <div class="row">
+       <div class="col-md-12">
+          <div class="titlepage">
+             <h2>Diagnostique</h2>
+             <p>Diagnostiquer le véhicule pour la réparation.</p>
+          </div>
+       </div>
+    </div>
+ </div>
+
+  <div id="testimonial" class="testimonial bottom_cross bottom_cross2" style="width: 50%;margin-left: 25%;">
+    <div class="row">
+      <div class="col-md-6">
+         <div class="testimonial_box">
+            <figure style="float: left; margin: 2%;"><img src="./assets/images/auto.png" alt="#" class="rounded-circle" style="width: 80px; height: 80px"/></figure>
+            <h3 style="text-align: left;">{{carDiag.carMark}} {{carDiag.carModel}} <br> <span class="badge badge-warning">{{carDiag.numberPlate}}</span></h3>
+         </div>
+      </div>
+      <div class="col-md-6">
+         <div class="testimonial_box">
+            <figure style="float: right; margin: 2%;"><img src="./assets/images/pngegg.png" alt="#" class="rounded-circle" style="width: 80px; height: 80px"/></figure>
+            <h3 style="text-align: right;">{{carDiag.clientName}} {{carDiag.clientSurname}} <br> <span class="badge badge-success">{{carDiag.clientContact}}</span></h3>
+         </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br><br>
+
+   <form [formGroup]="formule" (submit)="submit(formule.value)">
+
+    <ng-container formArrayName="carProblems" *ngFor="let cp of carProblems.controls; index as i">
+
+      <div class="form-inline" style="margin-left: 30%;" [formGroupName]="i">
+        <input type="text" class="form-control m-2" placeholder="Réparation" formControlName="entitled">
+        <input type="number" class="form-control m-2" placeholder="Prix" formControlName="price">
+        <button type="button" class="btn btn-primary m-2" (click)="addCarPRoblem()">+</button>
+        <button type="button" class="btn btn-primary m-2" (click)="removeCarProblem(i)">x</button>
+      </div>
+
+    </ng-container>
+
+    <div style="margin-left: 43%;">
+      <button type="submit" class="btn btn-primary m-2">Valider</button>
+    </div>
+
+   </form>
+
+
+
+
+</section>
