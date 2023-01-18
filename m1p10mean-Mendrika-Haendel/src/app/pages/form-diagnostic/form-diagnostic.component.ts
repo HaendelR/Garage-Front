@@ -88,7 +88,7 @@ export class FormDiagnosticComponent implements OnInit {
       this.formBuilder.group({
         entitled: null,
         price: null,
-        status: "en cours",
+        status: "EnCours",
       })
     );
   }
@@ -97,7 +97,7 @@ export class FormDiagnosticComponent implements OnInit {
     if (this.carProblems.length > 1) this.carProblems.removeAt(index);
     else
       this.carProblems.patchValue([
-        { entitled: null, price: null, status: "en cours" },
+        { entitled: null, price: null, status: "EnCours" },
       ]);
   }
 
@@ -123,7 +123,7 @@ export class FormDiagnosticComponent implements OnInit {
       numberPlate: this.carDiag.numberPlate,
       color: this.carDiag.color,
       carProblem: this.pb,
-      status: "en attente",
+      status: "EnAttente",
       amount: this.getAmount(value),
       garageName: this.carDiag.garageName,
       garageLocation: this.carDiag.garageLocation,
@@ -156,7 +156,7 @@ export class FormDiagnosticComponent implements OnInit {
       numberPlate: this.carDiag.numberPlate,
       color: this.carDiag.color,
       carProblem: this.pb,
-      status: "en attente",
+      status: "EnAttente",
       amount: this.getAmount(value),
       garageName: this.carDiag.garageName,
       garageLocation: this.carDiag.garageLocation,
@@ -181,11 +181,11 @@ export class FormDiagnosticComponent implements OnInit {
       subject: "Devis de réparation",
       text: `Marque du vehicule : ${
         this.carDiag.carMark
-      }<br>Matricule du vehicule : ${this.carDiag.numberPlate}
+      }.<br>Matricule du vehicule : ${this.carDiag.numberPlate}.
       <br>Model du vehicule : ${
         this.carDiag.carModel
-      }<br>Couleur du vehicule : ${this.carDiag.color}<br>
-      Coût total de réparation : ${this.getAmount(value)} Ar <br>`,
+      }.<br>Couleur du vehicule : ${this.carDiag.color}.<br>
+      Coût total de réparation : ${this.getAmount(value)} Ar.<br>`,
     };
     this.contentMail = mail;
     this.invoiceservice.sendEmail(this.contentMail).subscribe({
