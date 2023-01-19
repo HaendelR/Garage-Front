@@ -33,7 +33,7 @@ export class AtelierAccueilComponent implements OnInit {
             this.carDepot = data;
           },
           error: e => {
-
+            console.log(e);
           }
         });
       },

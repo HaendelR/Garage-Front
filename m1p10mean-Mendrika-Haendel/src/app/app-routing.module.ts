@@ -5,6 +5,7 @@ import { AtelierAccueilComponent } from './pages/atelier-accueil/atelier-accueil
 import { ClientAccueilComponent } from './pages/client-accueil/client-accueil.component';
 import { FormDiagnosticComponent } from './pages/form-diagnostic/form-diagnostic.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { VoitureDiagnostiquesComponent } from './pages/voiture-diagnostiques/voiture-diagnostiques.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "diagnostic-form/:matricule",
     component: FormDiagnosticComponent
+  },
+  {
+    path: "voiture-diagnostiques",
+    component: VoitureDiagnostiquesComponent
   }
 ];
 

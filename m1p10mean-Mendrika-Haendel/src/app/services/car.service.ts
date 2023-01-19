@@ -15,4 +15,10 @@ export class CarService {
 
     return this.httpClient.post<Car>(urlcar, car);
   }
+
+  findCar(numberPlate: string): Observable<Car> {
+    const url = `${this.server.getUrl()}/car/findCar/`+numberPlate;
+
+    return this.httpClient.get<Car>(url);
+  }
 }

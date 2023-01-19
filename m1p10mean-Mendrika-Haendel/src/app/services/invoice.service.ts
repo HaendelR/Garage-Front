@@ -19,4 +19,10 @@ export class InvoiceService {
 
     return this.httpClient.post<Invoice>(url, invoice);
   }
+
+  findInvoiceByClient(clientName: string, clientSurname: string): Observable<Invoice[]> {
+    const url = `${this.server.getUrl()}/invoice/findInvoiceByClient/`+clientName+`/`+clientSurname;
+
+    return this.httpClient.get<Invoice[]>(url);
+  }
 }
