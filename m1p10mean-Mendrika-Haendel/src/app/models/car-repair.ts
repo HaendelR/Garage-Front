@@ -4,6 +4,7 @@ export interface CarRepair {
     clientName: string,
     clientSurname: string,
     clientContact: string,
+    clientEmail: string,
     carMark: string,
     carModel: string,
     numberPlate: string,
