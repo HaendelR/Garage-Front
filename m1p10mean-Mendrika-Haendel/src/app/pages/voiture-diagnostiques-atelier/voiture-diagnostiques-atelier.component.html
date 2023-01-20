@@ -1,36 +1,41 @@
+<p>voiture-diagnostiques-atelier works!</p>
+
 <app-navbar></app-navbar>
 
+
 <section id="vehicles" class="vehicles" style="height: 70%;">
+
     <div class="container">
         <div class="row">
-           <div class="col-md-12">
-              <div class="titlepage">
-                 <h2>Véhicules diagnostiqués</h2>
-                 <p>La liste des véhicules déjà diagnostiqués.</p>
-              </div>
-           </div>
-        </div>
-     </div>
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>Véhicules diagnostiqués</h2>
+                  <p>La liste des véhicules déjà diagnostiqués.</p>
+               </div>
+            </div>
+         </div> 
+    </div>
 
+    <div style="display: flex;justify-content: center;">
 
-     <div style="display: flex;justify-content: center;">
         <table class="table align-middle mb-0 bg-white" style="width: 60%;text-align: center;">
 
             <thead class="bg-light">
                 <tr>
-                  <th>Voiture</th>
-                  <th>Client</th>
-                  <th>Statut</th>
-                  <th></th>
-                </tr>
+                    <th>Voiture</th>
+                    <th>Client</th>
+                    <th>Statut</th>
+                    <th></th>
+                  </tr>
             </thead>
 
             <tbody>
+
                 <tr *ngFor="let i of invoices">
                     <td>
                         <div class="d-flex align-items-center">
                             <img
-                                src="./assets/images/voiture.png"
+                                src="./assets/images/car.png"
                                 alt=""
                                 style="width: 45px; height: 45px"
                                 class="rounded-circle"
@@ -67,11 +72,11 @@
                         </form>
                     </td>
                 </tr>
+
             </tbody>
-    
-    
-         </table>
-    
-     </div>
-     
+
+        </table>
+
+    </div>
+
 </section>

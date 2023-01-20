@@ -13,6 +13,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { FormDiagnosticComponent } from './pages/form-diagnostic/form-diagnostic.component';
 import { VoitureDiagnostiquesComponent } from './pages/voiture-diagnostiques/voiture-diagnostiques.component';
 import { DiagnostiqueDevisComponent } from './pages/diagnostique-devis/diagnostique-devis.component';
+import { VoitureDiagnostiquesAtelierComponent } from './pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DiagnostiqueDevisComponent } from './pages/diagnostique-devis/diagnosti
     FormDiagnosticComponent,
     VoitureDiagnostiquesComponent,
     DiagnostiqueDevisComponent,
+    VoitureDiagnostiquesAtelierComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,20 +19,21 @@ export class NavbarComponent implements OnInit{
     private authservice: AuthentificationService,
   ) { }
 
-  check() {
-    const token = localStorage.getItem('tokenUser');
-    if(token) {
-      this.checkbar = true;
-    } else {
-      this.checkbar = false;
-    }
-  }
+  // check() {
+  //   const token = localStorage.getItem('tokenUser');
+  //   if(token) {
+  //     this.checkbar = true;
+  //   } else {
+  //     this.checkbar = false;
+  //   }
+  // }
 
   userme() {
     this.authservice.userconnecte()
     .subscribe({
       next : data => {
        this.me=data;
+      this.checkbar = true;
       },
       error: (e) => {
         console.log(e.error);
@@ -41,7 +42,7 @@ export class NavbarComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.check();
+    // this.check();
     this.userme();
   }
 

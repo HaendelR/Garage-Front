@@ -6,11 +6,11 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 import { InvoiceService } from 'src/app/services/invoice.service';
 
 @Component({
-  selector: 'app-voiture-diagnostiques',
-  templateUrl: './voiture-diagnostiques.component.html',
-  styleUrls: ['./voiture-diagnostiques.component.css']
+  selector: 'app-voiture-diagnostiques-atelier',
+  templateUrl: './voiture-diagnostiques-atelier.component.html',
+  styleUrls: ['./voiture-diagnostiques-atelier.component.css']
 })
-export class VoitureDiagnostiquesComponent implements OnInit{
+export class VoitureDiagnostiquesAtelierComponent implements OnInit{
 
   me!: Users;
   invoices!: Invoice[];
@@ -27,7 +27,7 @@ export class VoitureDiagnostiquesComponent implements OnInit{
       next : data => {
        this.me=data;
        console.log(this.me.garageLocation);
-       this.invoiceservice.findInvoiceByClient(this.me.name, this.me.surname)
+       this.invoiceservice.findInvoiceByUserAndGarage(this.me.garageName, this.me.garageLocation,this.me.name, this.me.surname)
        .subscribe({
           next: data => {
             this.invoices = data;
@@ -43,7 +43,6 @@ export class VoitureDiagnostiquesComponent implements OnInit{
     });
   }
 
-
   ngOnInit(): void {
       this.userme()
   }
@@ -51,5 +50,5 @@ export class VoitureDiagnostiquesComponent implements OnInit{
   listeDiagVehicule(numberPlate: string, status: string) {
     this.router.navigate(['devis-diagnostique/'+numberPlate+'/'+status]);
   }
-
+  
 }

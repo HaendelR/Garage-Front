@@ -6,6 +6,7 @@ import { ClientAccueilComponent } from './pages/client-accueil/client-accueil.co
 import { DiagnostiqueDevisComponent } from './pages/diagnostique-devis/diagnostique-devis.component';
 import { FormDiagnosticComponent } from './pages/form-diagnostic/form-diagnostic.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { VoitureDiagnostiquesAtelierComponent } from './pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component';
 import { VoitureDiagnostiquesComponent } from './pages/voiture-diagnostiques/voiture-diagnostiques.component';
 
 const routes: Routes = [
@@ -34,8 +35,12 @@ const routes: Routes = [
     component: VoitureDiagnostiquesComponent
   },
   {
-    path: "devis-diagnostique",
+    path: "devis-diagnostique/:numberPlate/:status",
     component: DiagnostiqueDevisComponent
+  },
+  {
+    path: "voiture-diagnostiques-atelier",
+    component: VoitureDiagnostiquesAtelierComponent
   }
 ];
 

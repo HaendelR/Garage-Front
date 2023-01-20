@@ -1,13 +1,14 @@
 <div *ngIf="me?.role === 'client'" id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a routerLink="/accueil-client">Saisie véhicule pour réparation </a>
-  <a routerLink="/voiture-diagnostiques">Voitures diagnostiqués </a>
+  <a routerLink="/voiture-diagnostiques">Véhicules diagnostiqués </a>
   <a href="#">Véhicules en réparations </a>
 </div>
 
 <div *ngIf="me?.role === 'respatelier'" id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a routerLink="/accueil-atelier">Véhicules à diagnostiquer </a>
+  <a routerLink="/voiture-diagnostiques-atelier">Véhicules diagnostiqués </a>
   <a href="#">Véhicules en attente </a>
   <a href="#">Véhicules en réparation </a>
 </div>
@@ -22,7 +23,12 @@
                  <a href="index.html"><img src="./assets/images/logo.png" alt="#" /></a>
               </div>
            </div>
-           <div *ngIf="checkbar" class="col-md-8 col-sm-8">
+
+           <div *ngIf="checkbar" class="col-md-4 col-sm-4">
+               <p>{{me.name}} {{me.surname}}</p>
+           </div>
+           
+           <div *ngIf="checkbar" class="col-md-4 col-sm-4">
               <div class="right_bottun">
                  <ul class="conat_info d_none ">
                     <li><a href="#"><i class="fa fa-user" role="button" (click)="logout()" aria-hidden="true" style="background-color: #0f98f8;"></i></a></li>

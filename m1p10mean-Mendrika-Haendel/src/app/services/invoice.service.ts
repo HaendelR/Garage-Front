@@ -30,4 +30,17 @@ export class InvoiceService {
     const url = `${this.server.getUrl()}/sendMail`;
     return this.httpClient.post<ContentMail>(url, contentMail);
   }
+
+  invoiceByMatriculeAndStatus(numberPlate: string | null, status: string | null): Observable<Invoice> {
+    const url = `${this.server.getUrl()}/invoice/InvoiceByMatriculeAndStatus/`+numberPlate+`/`+status;
+
+    return this.httpClient.get<Invoice>(url);
+  }
+  
+  findInvoiceByUserAndGarage(garageName: string | null, garageLocation: string | null, userName: string, userSurname: string): Observable<Invoice[]> {
+    const url = `${this.server.getUrl()}/invoice/findInvoiceByUserAndGarage/`+garageName+`/`+garageLocation+`/`+userName+`/`+userSurname;
+
+    return this.httpClient.get<Invoice[]>(url);
+
+  }
 }
