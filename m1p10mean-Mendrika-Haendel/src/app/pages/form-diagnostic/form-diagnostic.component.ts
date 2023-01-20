@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { CarDepot } from "src/app/models/car-depot";
 import { CarProblem } from "src/app/models/car-problem";
 import { CarRepair } from "src/app/models/car-repair";
@@ -32,7 +32,8 @@ export class FormDiagnosticComponent implements OnInit {
     private formBuilder: FormBuilder,
     private invoiceservice: InvoiceService,
     private carepairservice: CarRepairService,
-    private authservice: AuthentificationService
+    private authservice: AuthentificationService,
+    private router : Router
   ) {}
 
   carDiag!: CarDepot;
@@ -205,5 +206,8 @@ export class FormDiagnosticComponent implements OnInit {
         console.log(e);
       },
     });
+
+    this.router.navigate(['devis-diagnostique']);
+
   }
 }

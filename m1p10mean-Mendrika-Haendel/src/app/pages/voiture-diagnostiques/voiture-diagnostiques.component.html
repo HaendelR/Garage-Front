@@ -48,7 +48,7 @@
                         <p class="badge badge-primary rounded-pill d-inline">{{i.clientContact}}</p>
                     </td>
                     <td>
-                        <div *ngIf="i.status === 'en attente'">
+                        <div *ngIf="i.status === 'EnAttente'">
                             <p class="badge badge-warning rounded-pill d-inline">{{i.status}}</p>
                         </div>
                         <div *ngIf="i.status === 'non payer'">
@@ -59,12 +59,12 @@
                         </div>
                     </td>
                     <td>
-                        <form>
+                        <form (ngSubmit)="listeDiagVehicule()">
                           <button type="submit" class="btn btn-success">
                             Voir devis
                           </button>
                         </form>
-                      </td>
+                    </td>
                 </tr>
             </tbody>
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Invoice } from 'src/app/models/invoice';
 import { Users } from 'src/app/models/users';
 import { AuthentificationService } from 'src/app/services/authentification.service';
@@ -16,7 +17,8 @@ export class VoitureDiagnostiquesComponent implements OnInit{
 
   constructor(
     private authservice: AuthentificationService,
-    private invoiceservice: InvoiceService
+    private invoiceservice: InvoiceService,
+    private router: Router
   ) { }
 
   userme() {
@@ -44,6 +46,10 @@ export class VoitureDiagnostiquesComponent implements OnInit{
 
   ngOnInit(): void {
       this.userme()
+  }
+
+  listeDiagVehicule() {
+    this.router.navigate(['devis-diagnostique']);
   }
 
 }

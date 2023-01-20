@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { AtelierAccueilComponent } from './pages/atelier-accueil/atelier-accueil.component';
 import { ClientAccueilComponent } from './pages/client-accueil/client-accueil.component';
+import { DiagnostiqueDevisComponent } from './pages/diagnostique-devis/diagnostique-devis.component';
 import { FormDiagnosticComponent } from './pages/form-diagnostic/form-diagnostic.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { VoitureDiagnostiquesComponent } from './pages/voiture-diagnostiques/voiture-diagnostiques.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: "voiture-diagnostiques",
     component: VoitureDiagnostiquesComponent
+  },
+  {
+    path: "devis-diagnostique",
+    component: DiagnostiqueDevisComponent
   }
 ];
 
