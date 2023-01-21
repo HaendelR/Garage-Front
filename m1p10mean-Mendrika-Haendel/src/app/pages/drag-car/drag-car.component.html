@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<section id="vehicles" class="vehicles" style="height: 70%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Réparation véhicule</h2>
+                    <br><label>{{carRep.carMark}} {{carRep.carModel}} {{carRep.color}}</label><br>
+                    <label>Matricule : {{carRep.numberPlate}}</label>
+                    <p>Progression de la réparation <b>{{progress}}%</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containerDrag">
+        <div class="card" style="width: 25rem; overflow-y: scroll;">
+            <div class=" card-body">
+                <h5 class="card-title" style=" font-size: 18px !important;">Réparation en cours</h5>
+                <ul class="list-group list-group-flush" id="all" cdkDropList [cdkDropListData]="inProgress"
+                    cdkDropListConnectedTo="even" (cdkDropListDropped)="drop($event)"
+                    [cdkDropListEnterPredicate]="eventCondition" class="example-list">
+                    <li class=" list-group-item" *ngFor="let i of inProgress " [cdkDragData]="i" cdkDrag>{{i}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="width: 25rem; overflow-y: scroll;">
+            <div class="card-body">
+                <h5 class="card-title" style=" font-size: 18px !important;">Réparation Terminer</h5>
+                <ul class="list-group list-group-flush" id="even" cdkDropList [cdkDropListData]="finish"
+                    cdkDropListConnectedTo="all" class="example-list" (cdkDropListDropped)="drop($event)">
+                    <li class="list-group-item" *ngFor="let f of finish" cdkDrag [cdkDragData]="f">{{f}}</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>

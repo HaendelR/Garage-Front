@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './pages/accueil/accueil.component';
@@ -8,30 +9,42 @@ import { FormDiagnosticComponent } from './pages/form-diagnostic/form-diagnostic
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { VoitureDiagnostiquesAtelierComponent } from './pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component';
 import { VoitureDiagnostiquesComponent } from './pages/voiture-diagnostiques/voiture-diagnostiques.component';
+=======
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { AccueilComponent } from "./pages/accueil/accueil.component";
+import { AtelierAccueilComponent } from "./pages/atelier-accueil/atelier-accueil.component";
+import { ClientAccueilComponent } from "./pages/client-accueil/client-accueil.component";
+import { DragCarComponent } from "./pages/drag-car/drag-car.component";
+import { FormDiagnosticComponent } from "./pages/form-diagnostic/form-diagnostic.component";
+import { InscriptionComponent } from "./pages/inscription/inscription.component";
+import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voiture-diagnostiques.component";
+>>>>>>> Stashed changes
 
 const routes: Routes = [
   {
     path: "",
-    component: AccueilComponent
+    component: AccueilComponent,
   },
   {
     path: "accueil-client",
-    component: ClientAccueilComponent
+    component: ClientAccueilComponent,
   },
   {
     path: "accueil-atelier",
-    component: AtelierAccueilComponent
+    component: AtelierAccueilComponent,
   },
   {
     path: "inscription",
-    component: InscriptionComponent
+    component: InscriptionComponent,
   },
   {
     path: "diagnostic-form/:matricule",
-    component: FormDiagnosticComponent
+    component: FormDiagnosticComponent,
   },
   {
     path: "voiture-diagnostiques",
+<<<<<<< Updated upstream
     component: VoitureDiagnostiquesComponent
   },
   {
@@ -42,10 +55,18 @@ const routes: Routes = [
     path: "voiture-diagnostiques-atelier",
     component: VoitureDiagnostiquesAtelierComponent
   }
+=======
+    component: VoitureDiagnostiquesComponent,
+  },
+  {
+    path: "drag-car",
+    component: DragCarComponent,
+  },
+>>>>>>> Stashed changes
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
