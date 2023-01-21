@@ -34,6 +34,7 @@ export class InscriptionComponent {
       email: this.email,
       password: this.password,
       role: "client",
+      salary: null,
       garageName: null,
       garageLocation: null
     };

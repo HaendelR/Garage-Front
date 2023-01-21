@@ -49,23 +49,23 @@
                         <p class="badge badge-primary rounded-pill d-inline">{{i.clientContact}}</p>
                     </td>
                     <td>
-                        <div *ngIf="i.status === 'EnAttente'">
+                        <!-- <div *ngIf="i.status === 'EnAttente'">
                             <p class="badge badge-secondary rounded-pill d-inline">{{i.status}}</p>
-                        </div>
+                        </div> -->
                         <div *ngIf="i.status === 'NonPayer'">
-                            <p class="badge badge-warning rounded-pill d-inline">{{i.status}}</p>
+                            <p class="badge badge-danger rounded-pill d-inline">{{i.status}}</p>
                         </div>
                         <div *ngIf="i.status === 'Payer'">
                             <p class="badge badge-success rounded-pill d-inline">{{i.status}}</p>
                         </div>
-                        <div *ngIf="i.status === 'Refuser'">
+                        <!-- <div *ngIf="i.status === 'Refuser'">
                             <p class="badge badge-danger rounded-pill d-inline">{{i.status}}</p>
-                        </div>
+                        </div> -->
                     </td>
                     <td>
                         <form (ngSubmit)="listeDiagVehicule(i.numberPlate, i.status)">
                           <button type="submit" class="btn btn-success">
-                            Voir devis
+                            Voir détail
                           </button>
                         </form>
                     </td>

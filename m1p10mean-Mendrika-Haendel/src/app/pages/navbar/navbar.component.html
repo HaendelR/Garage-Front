@@ -1,17 +1,23 @@
 <div *ngIf="me?.role === 'client'" id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a routerLink="/accueil-client">Saisie véhicule pour réparation </a>
-  <a routerLink="/voiture-diagnostiques">Véhicules diagnostiqués </a>
+  <a routerLink="/voiture-diagnostiques">Facture des véhicules diagnostiqués </a>
   <a href="#">Véhicules en réparations </a>
 </div>
 
 <div *ngIf="me?.role === 'respatelier'" id="mySidepanel" class="sidepanel">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a routerLink="/accueil-atelier">Véhicules à diagnostiquer </a>
-  <a routerLink="/voiture-diagnostiques-atelier">Véhicules diagnostiqués </a>
-  <a href="#">Véhicules en attente </a>
-  <a href="#">Véhicules en réparation </a>
+  <a routerLink="/voiture-diagnostiques-atelier">Facture des véhicules diagnostiqués </a>
+  <a>Véhicules en attente </a>
+  <a>Véhicules en réparation </a>
 </div>
+
+<div *ngIf="me?.role === 'respfinance'" id="mySidepanel" class="sidepanel">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+   <a>Facture des véhicules diagnostiqués </a>
+   <a>Statistiques</a>
+ </div>
 
 <header>
   <!-- header inner -->
