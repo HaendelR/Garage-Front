@@ -19,7 +19,7 @@ import { InvoiceService } from "src/app/services/invoice.service";
 })
 export class FormDiagnosticComponent implements OnInit {
   carProblem = {
-    carProblems: [{ entitled: "", price: "", status: "en cours" }],
+    carProblems: [{ entitled: "", price: "", status: "EnCours" }],
   };
 
   formule: FormGroup = this.formBuilder.group({
@@ -207,7 +207,7 @@ export class FormDiagnosticComponent implements OnInit {
       },
     });
 
-    this.router.navigate(['devis-diagnostique']);
+    // this.router.navigate(['devis-diagnostique']);
 
   }
 }
