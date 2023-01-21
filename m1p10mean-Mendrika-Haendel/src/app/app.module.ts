@@ -14,6 +14,7 @@ import { FormDiagnosticComponent } from "./pages/form-diagnostic/form-diagnostic
 import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voiture-diagnostiques.component";
 import { DragCarComponent } from "./pages/drag-car/drag-car.component";
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
     FormDiagnosticComponent,
     VoitureDiagnostiquesComponent,
     DragCarComponent,
+    VoitureDiagnostiquesAtelierComponent
   ],
   imports: [
     BrowserModule,
