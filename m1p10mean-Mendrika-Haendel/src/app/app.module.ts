@@ -12,9 +12,9 @@ import { AtelierAccueilComponent } from "./pages/atelier-accueil/atelier-accueil
 import { InscriptionComponent } from "./pages/inscription/inscription.component";
 import { FormDiagnosticComponent } from "./pages/form-diagnostic/form-diagnostic.component";
 import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voiture-diagnostiques.component";
-import { DragCarComponent } from "./pages/drag-car/drag-car.component";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
+import { ReparationCarComponent } from "./pages/reparation-car/reparation-car.component";
 
 @NgModule({
   declarations: [
@@ -26,8 +26,8 @@ import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiq
     InscriptionComponent,
     FormDiagnosticComponent,
     VoitureDiagnostiquesComponent,
-    DragCarComponent,
-    VoitureDiagnostiquesAtelierComponent
+    ReparationCarComponent,
+    VoitureDiagnostiquesAtelierComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ import { InvoiceService } from "src/app/services/invoice.service";
 })
 export class FormDiagnosticComponent implements OnInit {
   carProblem = {
-    carProblems: [{ entitled: "", price: "", status: "EnCours" }],
+    carProblems: [{ entitled: "", price: "", status: "EnCours", progress: 0 }],
   };
 
   formule: FormGroup = this.formBuilder.group({
@@ -33,7 +33,7 @@ export class FormDiagnosticComponent implements OnInit {
     private invoiceservice: InvoiceService,
     private carepairservice: CarRepairService,
     private authservice: AuthentificationService,
-    private router : Router
+    private router: Router
   ) {}
 
   carDiag!: CarDepot;
@@ -73,7 +73,12 @@ export class FormDiagnosticComponent implements OnInit {
   }
 
   buildCarProblem(
-    carProblems: { entitled: string; price: string; status: string }[] = []
+    carProblems: {
+      entitled: string;
+      price: string;
+      status: string;
+      progress: number;
+    }[] = []
   ) {
     return this.formBuilder.array(
       carProblems.map((carp) => this.formBuilder.group(carp))
@@ -90,6 +95,7 @@ export class FormDiagnosticComponent implements OnInit {
         entitled: null,
         price: null,
         status: "EnCours",
+        progress: 0,
       })
     );
   }
@@ -98,7 +104,7 @@ export class FormDiagnosticComponent implements OnInit {
     if (this.carProblems.length > 1) this.carProblems.removeAt(index);
     else
       this.carProblems.patchValue([
-        { entitled: null, price: null, status: "EnCours" },
+        { entitled: null, price: null, status: "EnCours", progress: 0 },
       ]);
   }
 
@@ -126,6 +132,7 @@ export class FormDiagnosticComponent implements OnInit {
       carProblem: this.pb,
       status: "EnAttente",
       amount: this.getAmount(value),
+      globalProgress: 0,
       garageName: this.carDiag.garageName,
       garageLocation: this.carDiag.garageLocation,
       userName: this.me.name,
@@ -208,6 +215,5 @@ export class FormDiagnosticComponent implements OnInit {
     });
 
     // this.router.navigate(['devis-diagnostique']);
-
   }
 }

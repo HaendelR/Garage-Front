@@ -1,0 +1,25 @@
+.card-title {
+  display: flex;
+  background-color: #0f98f8;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+tbody {
+  display: block;
+  height: 225px;
+  overflow: auto;
+}
+
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table {
+  width: 90%;
+  margin-left: 5%;
+}

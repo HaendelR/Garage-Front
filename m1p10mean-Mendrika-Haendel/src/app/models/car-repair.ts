@@ -10,6 +10,7 @@ export interface CarRepair {
     numberPlate: string,
     color: string,
     carProblem: CarProblem[],
+    globalProgress:number
     amount: number,
     status: string,
     garageName: string,
