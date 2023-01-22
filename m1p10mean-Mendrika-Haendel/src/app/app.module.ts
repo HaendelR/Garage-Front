@@ -3,7 +3,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-
 import { AppComponent } from "./app.component";
 import { AccueilComponent } from "./pages/accueil/accueil.component";
 import { NavbarComponent } from "./pages/navbar/navbar.component";
@@ -15,6 +14,7 @@ import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voi
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
 import { ReparationCarComponent } from "./pages/reparation-car/reparation-car.component";
+import { DiagnostiqueDevisComponent } from "./pages/diagnostique-devis/diagnostique-devis.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +28,8 @@ import { ReparationCarComponent } from "./pages/reparation-car/reparation-car.co
     VoitureDiagnostiquesComponent,
     ReparationCarComponent,
     VoitureDiagnostiquesAtelierComponent,
+    VoitureDiagnostiquesAtelierComponent,
+    DiagnostiqueDevisComponent
   ],
   imports: [
     BrowserModule,

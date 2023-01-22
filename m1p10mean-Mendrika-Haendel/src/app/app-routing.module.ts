@@ -4,8 +4,10 @@ import { AccueilComponent } from "./pages/accueil/accueil.component";
 import { AtelierAccueilComponent } from "./pages/atelier-accueil/atelier-accueil.component";
 import { ClientAccueilComponent } from "./pages/client-accueil/client-accueil.component";
 import { ReparationCarComponent } from "./pages/reparation-car/reparation-car.component";
+import { DiagnostiqueDevisComponent } from "./pages/diagnostique-devis/diagnostique-devis.component";
 import { FormDiagnosticComponent } from "./pages/form-diagnostic/form-diagnostic.component";
 import { InscriptionComponent } from "./pages/inscription/inscription.component";
+import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
 import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voiture-diagnostiques.component";
 
 const routes: Routes = [
@@ -37,6 +39,14 @@ const routes: Routes = [
     path: "reparation-car",
     component: ReparationCarComponent,
   },
+  {
+    path: "voiture-diagnostiques-atelier",
+    component: VoitureDiagnostiquesAtelierComponent,
+  },
+  {
+    path:"devis-diagnostique/:numberPlate/:status",
+    component: DiagnostiqueDevisComponent
+  }
 ];
 
 @NgModule({

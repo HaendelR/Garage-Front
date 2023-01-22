@@ -164,7 +164,7 @@ export class FormDiagnosticComponent implements OnInit {
       numberPlate: this.carDiag.numberPlate,
       color: this.carDiag.color,
       carProblem: this.pb,
-      status: "EnAttente",
+      status: "NonPayer",
       amount: this.getAmount(value),
       garageName: this.carDiag.garageName,
       garageLocation: this.carDiag.garageLocation,
