@@ -9,6 +9,7 @@ import { FormDiagnosticComponent } from "./pages/form-diagnostic/form-diagnostic
 import { InscriptionComponent } from "./pages/inscription/inscription.component";
 import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
 import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voiture-diagnostiques.component";
+import { AccueilFinanceComponent } from "./pages/accueil-finance/accueil-finance.component";
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path:"devis-diagnostique/:numberPlate/:status",
     component: DiagnostiqueDevisComponent
+  },
+  {
+    path:"accueil-finance",
+    component: AccueilFinanceComponent
   }
 ];
 
