@@ -68,13 +68,14 @@ const routes: Routes = [
     path: "detail-car-repair/:numberPlate",
     component: DetailCarRepairClientComponent,
   },
-    path:"devis-diagnostique/:numberPlate/:status",
-    component: DiagnostiqueDevisComponent
+  {
+    path: "devis-diagnostique/:numberPlate/:status",
+    component: DiagnostiqueDevisComponent,
   },
   {
-    path:"accueil-finance",
-    component: AccueilFinanceComponent
-  }
+    path: "accueil-finance",
+    component: AccueilFinanceComponent,
+  },
 ];
 
 @NgModule({

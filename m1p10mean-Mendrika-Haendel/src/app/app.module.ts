@@ -38,7 +38,7 @@ import { AccueilFinanceComponent } from './pages/accueil-finance/accueil-finance
     ListCarWaitComponent,
     ListCarRepairComponent,
     ListCarRepairClientComponent,
-    DetailCarRepairClientComponent
+    DetailCarRepairClientComponent,
     AccueilFinanceComponent
   ],
   imports: [
