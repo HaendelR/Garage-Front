@@ -9,6 +9,10 @@ import { FormDiagnosticComponent } from "./pages/form-diagnostic/form-diagnostic
 import { InscriptionComponent } from "./pages/inscription/inscription.component";
 import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
 import { VoitureDiagnostiquesComponent } from "./pages/voiture-diagnostiques/voiture-diagnostiques.component";
+import { ListCarWaitComponent } from "./pages/list-car-wait/list-car-wait.component";
+import { ListCarRepairComponent } from "./pages/list-car-repair/list-car-repair.component";
+import { ListCarRepairClientComponent } from "./pages/list-car-repair-client/list-car-repair-client.component";
+import { DetailCarRepairClientComponent } from "./pages/detail-car-repair-client/detail-car-repair-client.component";
 
 const routes: Routes = [
   {
@@ -36,7 +40,7 @@ const routes: Routes = [
     component: VoitureDiagnostiquesComponent,
   },
   {
-    path: "reparation-car",
+    path: "reparation-car/:numberPlate",
     component: ReparationCarComponent,
   },
   {
@@ -44,9 +48,25 @@ const routes: Routes = [
     component: VoitureDiagnostiquesAtelierComponent,
   },
   {
-    path:"devis-diagnostique/:numberPlate/:status",
-    component: DiagnostiqueDevisComponent
-  }
+    path: "devis-diagnostique/:numberPlate/:status",
+    component: DiagnostiqueDevisComponent,
+  },
+  {
+    path: "list-car-wait",
+    component: ListCarWaitComponent,
+  },
+  {
+    path: "list-car-repair",
+    component: ListCarRepairComponent,
+  },
+  {
+    path: "list-car-repair-client",
+    component: ListCarRepairClientComponent,
+  },
+  {
+    path: "detail-car-repair/:numberPlate",
+    component: DetailCarRepairClientComponent,
+  },
 ];
 
 @NgModule({

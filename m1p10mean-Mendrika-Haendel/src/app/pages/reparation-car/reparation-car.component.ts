@@ -3,6 +3,7 @@ import { AuthentificationService } from "src/app/services/authentification.servi
 import { Users } from "src/app/models/users";
 import { CarRepair } from "src/app/models/car-repair";
 import { ReparationCarService } from "src/app/services/reparation-car.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-reparation-car",
@@ -12,8 +13,10 @@ import { ReparationCarService } from "src/app/services/reparation-car.service";
 export class ReparationCarComponent {
   constructor(
     private authservice: AuthentificationService,
-    private carReparation: ReparationCarService
+    private carReparation: ReparationCarService,
+    private route: ActivatedRoute
   ) {}
+  numberPlate = this.route.snapshot.paramMap.get("numberPlate");
   advance: any = {};
   user!: Users;
   carRep!: CarRepair;
@@ -28,8 +31,8 @@ export class ReparationCarComponent {
         this.user = data;
         return this.carReparation
           .getCarRepair(
-            "1234TBB",
-            "EnAttente",
+            this.numberPlate,
+            "EnReparation",
             this.user.garageLocation,
             this.user.garageName
           )
@@ -64,26 +67,15 @@ export class ReparationCarComponent {
     }
     if (globalProgress == 100) {
       this.message = "Réparation terminer :)";
-      this.carReparation
-        .updateStatusCarRepairAndDateFinishAndDuration(
-          "1234TBB",
-          "EnAttente",
-          "Terminer",
-          new Date(),
-          new Date()
-        )
-        .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
-          error: (e) => {
-            console.log(e);
-          },
-        });
     }
     if (progress < this.advance && this.advance < 100) {
       this.carReparation
-        .updateProgressCarProblem("1234TBB", pr, this.advance, globalProgress)
+        .updateProgressCarProblem(
+          this.numberPlate,
+          pr,
+          this.advance,
+          globalProgress
+        )
         .subscribe({
           next: (data) => {
             console.log(data);
@@ -94,25 +86,30 @@ export class ReparationCarComponent {
         });
     } else if (this.advance === 100) {
       this.carReparation
-      //   .updateProgressCarProblem("1234TBB", pr, this.advance, globalProgress)
-      //   .subscribe({
-      //     next: (data) => {
-      //       console.log(data);
-      //     },
-      //     error: (e) => {
-      //       console.log(e);
-      //     },
-      //   });
-      // this.carReparation
-      //   .updateStatusCarProblem("1234TBB", pr, "Terminer")
-      //   .subscribe({
-      //     next: (data) => {
-      //       console.log(data);
-      //     },
-      //     error: (e) => {
-      //       console.log(e);
-      //     },
-      //   });
+        .updateProgressCarProblem(
+          this.numberPlate,
+          pr,
+          this.advance,
+          globalProgress
+        )
+        .subscribe({
+          next: (data) => {
+            console.log(data);
+          },
+          error: (e) => {
+            console.log(e);
+          },
+        });
+      this.carReparation
+        .updateStatusCarProblem(this.numberPlate, pr, "Terminer")
+        .subscribe({
+          next: (data) => {
+            console.log(data);
+          },
+          error: (e) => {
+            console.log(e);
+          },
+        });
     } else if (progress > this.advance) {
       this.error = "L'avancement saisi est inférieur à l'avancement actuel";
     } else if (this.advance > 100) {
@@ -120,6 +117,23 @@ export class ReparationCarComponent {
         "Réparation déja terminer ou l'avancement saisie est supérieur à 100";
     }
     this.getCar();
+  }
+
+  terminer() {
+    this.carReparation
+      .updateStatusCarRepairAndDateFinishAndDuration(
+        this.numberPlate,
+        "EnReparation",
+        "Terminer"
+      )
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        error: (e) => {
+          console.log(e);
+        },
+      });
   }
 
   async ngOnInit(): Promise<void> {

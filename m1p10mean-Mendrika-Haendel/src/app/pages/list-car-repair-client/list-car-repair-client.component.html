@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+
+<section id="vehicles" class="vehicles" style="height: 70%;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Véhicules En Réparation</h2>
+                    <p>La liste des véhicules en cours de réparation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: center;">
+
+        <table class="table align-middle mb-0 bg-white" style="width: 90%;text-align: center;">
+
+            <thead class="bg-light">
+                <tr>
+                    <th>Voiture</th>
+                    <th>Client</th>
+                    <th>Garage</th>
+                    <th>Lieu</th>
+                    <th>Avancement globale</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let c of carRepair">
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="./assets/images/car.png" alt="" style="width: 45px; height: 45px"
+                                class="rounded-circle" />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{c.carMark}} {{c.carModel}}</p>
+                                <p class="badge badge-warning rounded-pill d-inline">{{c.numberPlate}}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{c.clientName}} {{c.clientSurname}}</p>
+                        <p class="badge badge-primary rounded-pill d-inline">{{c.clientContact}}</p>
+                    </td>
+                    <td>
+                        <p class="badge badge-primary rounded-pill d-inline">{{c.garageName}}</p>
+                    </td>
+                    <td>
+                        <p class="badge badge-primary rounded-pill d-inline">{{c.garageLocation}}</p>
+                    </td>
+                    <td>
+                        <p class="fw-normal mb-1">{{c.globalProgress}}%</p>
+                    </td>
+                    <td>
+                        <form (ngSubmit)="detailsProgressRepair(c.numberPlate)">
+                            <button type="submit" class="btn btn-success">
+                                Details avancement
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>

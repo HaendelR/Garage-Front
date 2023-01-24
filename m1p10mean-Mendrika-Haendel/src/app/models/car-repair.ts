@@ -18,7 +18,7 @@ export interface CarRepair {
     userName: string,
     userSurname: string,
     userContact: string,
-    start: Date | null,
-    stop: Date | null,
+    dateTimeStart: Date | null,
+    dateTimeStop: Date | null,
     duration: number | null
 }

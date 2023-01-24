@@ -15,6 +15,10 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { VoitureDiagnostiquesAtelierComponent } from "./pages/voiture-diagnostiques-atelier/voiture-diagnostiques-atelier.component";
 import { ReparationCarComponent } from "./pages/reparation-car/reparation-car.component";
 import { DiagnostiqueDevisComponent } from "./pages/diagnostique-devis/diagnostique-devis.component";
+import { ListCarWaitComponent } from './pages/list-car-wait/list-car-wait.component';
+import { ListCarRepairComponent } from './pages/list-car-repair/list-car-repair.component';
+import { ListCarRepairClientComponent } from './pages/list-car-repair-client/list-car-repair-client.component';
+import { DetailCarRepairClientComponent } from './pages/detail-car-repair-client/detail-car-repair-client.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { DiagnostiqueDevisComponent } from "./pages/diagnostique-devis/diagnosti
     ReparationCarComponent,
     VoitureDiagnostiquesAtelierComponent,
     VoitureDiagnostiquesAtelierComponent,
-    DiagnostiqueDevisComponent
+    DiagnostiqueDevisComponent,
+    ListCarWaitComponent,
+    ListCarRepairComponent,
+    ListCarRepairClientComponent,
+    DetailCarRepairClientComponent
   ],
   imports: [
     BrowserModule,

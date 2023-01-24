@@ -138,8 +138,8 @@ export class FormDiagnosticComponent implements OnInit {
       userName: this.me.name,
       userSurname: this.me.surname,
       userContact: this.me.numberPhone,
-      start: null,
-      stop: null,
+      dateTimeStart: null,
+      dateTimeStop: null,
       duration: null,
     };
 

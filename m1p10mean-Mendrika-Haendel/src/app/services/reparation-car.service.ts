@@ -38,17 +38,13 @@ export class ReparationCarService {
   updateStatusCarRepairAndDateFinishAndDuration(
     matricule: string | null,
     currentStatus: string | null,
-    updateStatus: string | null,
-    dateTimeStart: Date,
-    dateTimeFinish: Date
+    updateStatus: string | null
   ): Observable<any> {
     const url = `${this.server.getUrl()}/carRepair/updateStatusCarRepairAndDateFinishAndDuration`;
     var body = {
       numberPlate: matricule,
       currentStatus: currentStatus,
       updateStatus: updateStatus,
-      dateTimeStart: dateTimeStart,
-      dateTimeFinish: dateTimeFinish,
     };
     return this.httpClient.put<any>(url, body);
   }
