@@ -4,6 +4,7 @@ import { Users } from "src/app/models/users";
 import { CarRepair } from "src/app/models/car-repair";
 import { ReparationCarService } from "src/app/services/reparation-car.service";
 import { ActivatedRoute } from "@angular/router";
+import { ContentMail } from "src/app/models/content-mail";
 
 @Component({
   selector: "app-reparation-car",
@@ -24,6 +25,7 @@ export class ReparationCarComponent {
   inProgress = [""];
   finish = [""];
   message = "";
+  contentMail!: ContentMail;
 
   getCar() {
     this.authservice.userconnecte().subscribe({
@@ -120,6 +122,22 @@ export class ReparationCarComponent {
   }
 
   terminer() {
+    var mail = {
+      to: this.carRep.clientEmail,
+      subject: "Réparation terminer",
+      text: `Marque du vehicule : ${this.carRep.carMark}.<br>Matricule du vehicule : ${this.carRep.numberPlate}.
+      <br>Model du vehicule : ${this.carRep.carModel}.<br>Couleur du vehicule : ${this.carRep.color}.<br>
+      La réparation de votre voiture est terminer.<br>`,
+    };
+    this.contentMail = mail;
+    this.carReparation.sendEmail(this.contentMail).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
     this.carReparation
       .updateStatusCarRepairAndDateFinishAndDuration(
         this.numberPlate,

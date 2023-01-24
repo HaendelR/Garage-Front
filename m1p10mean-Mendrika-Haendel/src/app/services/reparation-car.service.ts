@@ -3,12 +3,18 @@ import { HttpClient } from "@angular/common/http";
 import { Server } from "../server";
 import { Observable } from "rxjs";
 import { CarRepair } from "../models/car-repair";
+import { ContentMail } from "../models/content-mail";
 
 @Injectable({
   providedIn: "root",
 })
 export class ReparationCarService {
   constructor(private httpClient: HttpClient, private server: Server) {}
+
+  sendEmail(contentMail: ContentMail): Observable<ContentMail> {
+    const url = `${this.server.getUrl()}/sendMail`;
+    return this.httpClient.post<ContentMail>(url, contentMail);
+  }
 
   getCarRepair(
     numberPlate: string | null,

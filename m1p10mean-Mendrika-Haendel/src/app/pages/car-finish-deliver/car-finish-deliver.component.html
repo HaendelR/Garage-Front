@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<section id="vehicles" class="vehicles" style="height: 70%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>véhicule Terminer non récupérer</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="containerDrag">
+        <div class="card" style="width: 25rem; overflow-y: scroll;">
+            <div class=" card-body">
+                <h5 class="card-title" style=" font-size: 18px !important;">Vehicule non payer</h5>
+                <ul class="list-group list-group-flush" id="all" cdkDropList [cdkDropListData]="finish"
+                    cdkDropListConnectedTo="even" (cdkDropListDropped)="drop($event)"
+                    [cdkDropListEnterPredicate]="eventCondition" class="example-list">
+                    <li class=" list-group-item" *ngFor="let f of finish " [cdkDragData]="f" cdkDrag>{{f}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="width: 25rem; overflow-y: scroll;">
+            <div class="card-body">
+                <h5 class="card-title" style=" font-size: 18px !important;">Vehicule payer et récuperer</h5>
+                <ul class="list-group list-group-flush" id="even" cdkDropList [cdkDropListData]="delivery"
+                    cdkDropListConnectedTo="all" class="example-list" (cdkDropListDropped)="drop($event)"
+                    [cdkDropListEnterPredicate]="eventPredict">
+                    <li class="list-group-item" *ngFor="let d of delivery" cdkDrag [cdkDragData]="d">{{d}}</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>

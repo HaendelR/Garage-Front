@@ -141,6 +141,8 @@ export class FormDiagnosticComponent implements OnInit {
       dateTimeStart: null,
       dateTimeStop: null,
       duration: null,
+      invoiceStatus: "NonPayer",
+      carDepotStatus: "diagnostiquer",
     };
 
     this.voitureRepair = vdiag;

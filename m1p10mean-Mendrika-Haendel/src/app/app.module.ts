@@ -20,6 +20,7 @@ import { ListCarRepairComponent } from './pages/list-car-repair/list-car-repair.
 import { ListCarRepairClientComponent } from './pages/list-car-repair-client/list-car-repair-client.component';
 import { DetailCarRepairClientComponent } from './pages/detail-car-repair-client/detail-car-repair-client.component';
 import { AccueilFinanceComponent } from './pages/accueil-finance/accueil-finance.component';
+import { CarFinishDeliverComponent } from './pages/car-finish-deliver/car-finish-deliver.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AccueilFinanceComponent } from './pages/accueil-finance/accueil-finance
     ListCarRepairComponent,
     ListCarRepairClientComponent,
     DetailCarRepairClientComponent,
-    AccueilFinanceComponent
+    AccueilFinanceComponent,
+    CarFinishDeliverComponent
   ],
   imports: [
     BrowserModule,
