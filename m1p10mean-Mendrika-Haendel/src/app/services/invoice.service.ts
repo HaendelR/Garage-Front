@@ -43,4 +43,10 @@ export class InvoiceService {
     return this.httpClient.get<Invoice[]>(url);
 
   }
+
+  findInvoiceByGarage(garageName: string | null, garageLocation: string | null): Observable<Invoice[]> {
+    const url = `${this.server.getUrl()}/invoice/findInvoiceByGarage/`+garageName+`/`+garageLocation;
+
+    return this.httpClient.get<Invoice[]>(url);
+  }
 }

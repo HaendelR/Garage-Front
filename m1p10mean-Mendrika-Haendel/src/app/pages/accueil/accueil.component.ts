@@ -37,6 +37,7 @@ export class AccueilComponent implements OnInit {
           next: data => {
             if(data.role === "client") this.router.navigate(['accueil-client']);
             if(data.role === "respatelier") this.router.navigate(['accueil-atelier']);
+            if(data.role === "respfinance") this.router.navigate(['accueil-finance']);
           }
         });
 

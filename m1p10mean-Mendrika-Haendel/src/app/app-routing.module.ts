@@ -13,6 +13,7 @@ import { ListCarWaitComponent } from "./pages/list-car-wait/list-car-wait.compon
 import { ListCarRepairComponent } from "./pages/list-car-repair/list-car-repair.component";
 import { ListCarRepairClientComponent } from "./pages/list-car-repair-client/list-car-repair-client.component";
 import { DetailCarRepairClientComponent } from "./pages/detail-car-repair-client/detail-car-repair-client.component";
+import { AccueilFinanceComponent } from "./pages/accueil-finance/accueil-finance.component";
 
 const routes: Routes = [
   {
@@ -67,6 +68,13 @@ const routes: Routes = [
     path: "detail-car-repair/:numberPlate",
     component: DetailCarRepairClientComponent,
   },
+    path:"devis-diagnostique/:numberPlate/:status",
+    component: DiagnostiqueDevisComponent
+  },
+  {
+    path:"accueil-finance",
+    component: AccueilFinanceComponent
+  }
 ];
 
 @NgModule({

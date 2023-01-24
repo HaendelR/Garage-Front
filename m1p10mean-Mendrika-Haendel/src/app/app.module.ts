@@ -19,6 +19,7 @@ import { ListCarWaitComponent } from './pages/list-car-wait/list-car-wait.compon
 import { ListCarRepairComponent } from './pages/list-car-repair/list-car-repair.component';
 import { ListCarRepairClientComponent } from './pages/list-car-repair-client/list-car-repair-client.component';
 import { DetailCarRepairClientComponent } from './pages/detail-car-repair-client/detail-car-repair-client.component';
+import { AccueilFinanceComponent } from './pages/accueil-finance/accueil-finance.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DetailCarRepairClientComponent } from './pages/detail-car-repair-client
     ListCarRepairComponent,
     ListCarRepairClientComponent,
     DetailCarRepairClientComponent
+    AccueilFinanceComponent
   ],
   imports: [
     BrowserModule,
