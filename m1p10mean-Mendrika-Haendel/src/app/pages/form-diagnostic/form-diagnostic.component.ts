@@ -26,6 +26,8 @@ export class FormDiagnosticComponent implements OnInit {
     carProblems: this.buildCarProblem(this.carProblem.carProblems),
   });
 
+  message!: string;
+
   constructor(
     private route: ActivatedRoute,
     private cardepotservice: CarDepotService,
@@ -215,6 +217,8 @@ export class FormDiagnosticComponent implements OnInit {
         console.log(e);
       },
     });
+
+    this.message = "Diagnostic enregistré";
 
     // this.router.navigate(['devis-diagnostique']);
   }

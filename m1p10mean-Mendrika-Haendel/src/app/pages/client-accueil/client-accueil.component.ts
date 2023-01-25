@@ -25,6 +25,8 @@ export class ClientAccueilComponent implements OnInit {
   description = "";
   garage = "";
 
+  message!: string; 
+
   constructor(
     private authservice: AuthentificationService,
     private carservice: CarService,
@@ -84,6 +86,64 @@ export class ClientAccueilComponent implements OnInit {
               console.log(e.error.error);
             },
           });
+
+          var gg = this.garage.split(":");
+
+          var cardepot = {
+            garageName: gg[0],
+            garageLocation: gg[1],
+            clientName: this.me.name,
+            clientSurname: this.me.surname,
+            clientContact: this.me.numberPhone,
+            clientEmail: this.me.email,
+            carMark: this.carMark,
+            carModel: this.carModel,
+            color: this.color,
+            numberPlate: this.numberPlate,
+            description: this.description,
+            status: "depose",
+          };
+
+          this.voitureDepot = cardepot;
+
+          this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
+            next: (data) => {
+              console.log(data);
+            },
+            error: (e) => {
+              console.log(e.error.error);
+            },
+          });
+
+        } else {
+          var gg = this.garage.split(":");
+
+          var cardepot = {
+            garageName: gg[0],
+            garageLocation: gg[1],
+            clientName: this.me.name,
+            clientSurname: this.me.surname,
+            clientContact: this.me.numberPhone,
+            clientEmail: this.me.email,
+            carMark: this.carMark,
+            carModel: this.carModel,
+            color: this.color,
+            numberPlate: this.numberPlate,
+            description: this.description,
+            status: "depose",
+          };
+
+          this.voitureDepot = cardepot;
+
+          this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
+            next: (data) => {
+              console.log(data);
+            },
+            error: (e) => {
+              console.log(e.error.error);
+            },
+          });
+
         }
 
       }, 
@@ -92,32 +152,7 @@ export class ClientAccueilComponent implements OnInit {
       }
     });
 
-    var gg = this.garage.split(":");
-
-    var cardepot = {
-      garageName: gg[0],
-      garageLocation: gg[1],
-      clientName: this.me.name,
-      clientSurname: this.me.surname,
-      clientContact: this.me.numberPhone,
-      clientEmail: this.me.email,
-      carMark: this.carMark,
-      carModel: this.carModel,
-      color: this.color,
-      numberPlate: this.numberPlate,
-      description: this.description,
-      status: "depose",
-    };
-
-    this.voitureDepot = cardepot;
-
-    this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-      error: (e) => {
-        console.log(e.error.error);
-      },
-    });
+    
+    this.message = "Votre véhicule est bien déposé pour la réparation";
   }
 }
