@@ -46,4 +46,11 @@ export class CarDepotService {
 
     return this.httpClient.put<any>(url, status);
   }
+
+  carDepotClient(clientEmail: string | null): Observable<CarDepot[]> {
+    const url = `${this.server.getUrl()}/carDepot/carDepotClient/`+clientEmail;
+
+    return this.httpClient.get<CarDepot[]>(url);
+
+  }
 }

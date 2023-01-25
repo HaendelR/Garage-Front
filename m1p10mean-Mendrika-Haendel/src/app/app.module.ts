@@ -21,6 +21,7 @@ import { ListCarRepairClientComponent } from './pages/list-car-repair-client/lis
 import { DetailCarRepairClientComponent } from './pages/detail-car-repair-client/detail-car-repair-client.component';
 import { AccueilFinanceComponent } from './pages/accueil-finance/accueil-finance.component';
 import { CarFinishDeliverComponent } from './pages/car-finish-deliver/car-finish-deliver.component';
+import { CarDepotClientComponent } from './pages/car-depot-client/car-depot-client.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CarFinishDeliverComponent } from './pages/car-finish-deliver/car-finish
     ListCarRepairClientComponent,
     DetailCarRepairClientComponent,
     AccueilFinanceComponent,
-    CarFinishDeliverComponent
+    CarFinishDeliverComponent,
+    CarDepotClientComponent
   ],
   imports: [
     BrowserModule,
