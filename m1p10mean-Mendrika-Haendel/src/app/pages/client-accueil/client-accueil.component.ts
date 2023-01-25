@@ -58,7 +58,7 @@ export class ClientAccueilComponent implements OnInit {
     this.userme(), this.getGarages();
   }
 
-  depotVoiture() {
+  async depotVoiture() {
     var car = {
       clientName: this.me.name,
       clientSurname: this.me.surname,
@@ -71,13 +71,25 @@ export class ClientAccueilComponent implements OnInit {
 
     this.voiture = car;
 
-    this.carservice.insertCar(this.voiture).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-      error: (e) => {
-        console.log(e.error.error);
-      },
+    this.carservice.findCar(this.voiture.numberPlate)
+    .subscribe({
+      next : data => {
+
+        if(data === null) {
+          this.carservice.insertCar(this.voiture).subscribe({
+            next: (data) => {
+              console.log(data);
+            },
+            error: (e) => {
+              console.log(e.error.error);
+            },
+          });
+        }
+
+      }, 
+      error: e => {
+        console.log(e);
+      }
     });
 
     var gg = this.garage.split(":");

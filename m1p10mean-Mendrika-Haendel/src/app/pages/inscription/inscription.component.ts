@@ -18,6 +18,7 @@ export class InscriptionComponent {
   password='';
 
   userInscrit!: Users;
+  message!: string;
 
   constructor(
     private authservice: AuthentificationService,
@@ -48,7 +49,7 @@ export class InscriptionComponent {
         this.router.navigate(['']);
       },
       error: e => {
-        console.log(e);
+        this.message = e.error.error;
       }
     });
   }
