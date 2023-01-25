@@ -27,7 +27,6 @@ export class CarFinishDeliverService {
     status: string | null,
     invoiceStatus: string | null,
     carDepotStatus: string | null,
-    updateInvoiceStatus: string | null,
     updateCarDepotStatus: string | null
   ): Observable<any> {
     const url = `${this.server.getUrl()}/carRepair/updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair`;
@@ -36,22 +35,8 @@ export class CarFinishDeliverService {
       status: status,
       invoiceStatus: invoiceStatus,
       carDepotStatus: carDepotStatus,
-      updateInvoiceStatus: updateInvoiceStatus,
+      updateInvoiceStatus: "Payer",
       updateCarDepotStatus: updateCarDepotStatus,
-    };
-    return this.httpClient.put<any>(url, body);
-  }
-
-  updateInvoiceStatusNumberPlate(
-    numberPlate: string | null,
-    status: string | null,
-    updateInvoiceStatus: string | null
-  ): Observable<any> {
-    const url = `${this.server.getUrl()}/invoice/updateInvoiceStatusNumberPlate`;
-    var body = {
-      numberPlate: numberPlate,
-      status: status,
-      updateInvoiceStatus: updateInvoiceStatus,
     };
     return this.httpClient.put<any>(url, body);
   }

@@ -39,7 +39,7 @@ export class CarFinishDeliverComponent {
             "Terminer",
             this.user.name,
             this.user.surname,
-            "NonPayer",
+            "Payer",
             "diagnostiquer"
           )
           .subscribe({
@@ -47,7 +47,7 @@ export class CarFinishDeliverComponent {
               this.carRep = data;
               for (let i = 0; i < this.carRep.length; i++) {
                 if (
-                  this.carRep[i].invoiceStatus === "NonPayer" &&
+                  this.carRep[i].invoiceStatus === "Payer" &&
                   this.carRep[i].carDepotStatus === "diagnostiquer" &&
                   !this.delivery.includes(this.carRep[i].numberPlate) &&
                   !this.finish.includes(this.carRep[i].numberPlate)
@@ -88,10 +88,12 @@ export class CarFinishDeliverComponent {
         }
       }
       if (
-        carTem?.invoiceStatus === "NonPayer" &&
+        carTem?.invoiceStatus === "Payer" &&
         carTem.carDepotStatus === "diagnostiquer"
       ) {
         console.log("erreur be ");
+        this.testCar = false;
+      } else {
         this.testCar = true;
       }
     } else {
@@ -101,29 +103,14 @@ export class CarFinishDeliverComponent {
         event.previousIndex,
         event.currentIndex
       );
-      this.testCar = true;
+
       this.carFinish
         .updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair(
           this.delivery[event.currentIndex],
           "Terminer",
-          "NonPayer",
-          "diagnostiquer",
           "Payer",
+          "diagnostiquer",
           "Recuperer"
-        )
-        .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
-          error: (e) => {
-            console.log(e);
-          },
-        });
-      this.carFinish
-        .updateInvoiceStatusNumberPlate(
-          this.delivery[event.currentIndex],
-          "NonPayer",
-          "Payer"
         )
         .subscribe({
           next: (data) => {
@@ -155,6 +142,6 @@ export class CarFinishDeliverComponent {
     return false;
   }
   eventPredict(e: CdkDrag<string>) {
-    return this.testCar;
+    return true;
   }
 }

@@ -4,12 +4,13 @@
 
     <div class="container">
         <div class="row">
-           <div class="col-md-12">
-              <div class="titlepage">
-                 <h2>Les diagnostiques du véhicule</h2>
-                 <p>Détails des diagnostiques faits par l'employé du garage.</p>
-              </div>
-           </div>
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Les diagnostiques du véhicule</h2>
+                    <p>Détails des diagnostiques faits par l'employé du garage.</p>
+                    <p>{{message}}</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -25,14 +26,17 @@
                     <div class="col-sm-6">
                         <div>
                             <span class="text-sm text-grey-m2 align-middle" style="font-size: 135%;">Client: </span>
-                            <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.clientName}} {{invoice.clientSurname}}</span>
+                            <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.clientName}}
+                                {{invoice.clientSurname}}</span>
                         </div>
                         <div class="text-grey-m2">
-                            <div class="my-1"><i class="fa fa-phone  text-secondary"></i> <b class="text-600" style="font-size: 135%;"> {{invoice.clientContact}}</b></div>
+                            <div class="my-1"><i class="fa fa-phone  text-secondary"></i> <b class="text-600"
+                                    style="font-size: 135%;"> {{invoice.clientContact}}</b></div>
                         </div>
                         <div>
                             <span class="text-sm text-grey-m2 align-middle" style="font-size: 135%;">Véhicule: </span>
-                            <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.carMark}} {{invoice.carModel}}</span>
+                            <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.carMark}}
+                                {{invoice.carModel}}</span>
                         </div>
                         <div>
                             <span class="text-sm text-grey-m2 align-middle" style="font-size: 135%;">Matricule: </span>
@@ -40,23 +44,27 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="text-95 col-sm-6 align-self-start d-sm-flex justify-content-end">
                         <hr class="d-sm-none" />
-                        
+
                         <div class="text-grey-m2">
                             <div>
-                                <span class="text-sm text-grey-m2 align-middle" style="font-size: 135%;">Vendeur: </span>
-                                <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.userName}} {{invoice.userSurname}}</span>
+                                <span class="text-sm text-grey-m2 align-middle" style="font-size: 135%;">Vendeur:
+                                </span>
+                                <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.userName}}
+                                    {{invoice.userSurname}}</span>
                             </div>
 
                             <div>
                                 <span class="text-sm text-grey-m2 align-middle" style="font-size: 135%;">Garage: </span>
-                                <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.garageName}} {{invoice.garageLocation}}</span>
+                                <span class="text-blue align-middle" style="font-size: 135%;">{{invoice.garageName}}
+                                    {{invoice.garageLocation}}</span>
                             </div>
 
-                            <div class="my-1"><i class="fa fa-phone text-secondary"></i> <b class="text-600" style="font-size: 135%;"> {{invoice.userContact}}</b></div>
+                            <div class="my-1"><i class="fa fa-phone text-secondary"></i> <b class="text-600"
+                                    style="font-size: 135%;"> {{invoice.userContact}}</b></div>
 
                             <!-- <div class="my-2" style="font-size: 135%;"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Issue Date:</span> Oct 12, 2019</div> -->
 
@@ -67,14 +75,14 @@
                             </div> -->
 
                             <div class="my-2" style="font-size: 135%;" *ngIf="invoice.status === 'NonPayer'">
-                                <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> 
-                                <span class="text-600 text-90 mr-2">Status:</span> 
+                                <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>
+                                <span class="text-600 text-90 mr-2">Status:</span>
                                 <span class="badge badge-danger badge-pill px-25"> {{invoice.status}}</span>
                             </div>
 
                             <div class="my-2" style="font-size: 135%;" *ngIf="invoice.status === 'Payer'">
-                                <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> 
-                                <span class="text-600 text-90 mr-2">Status:</span> 
+                                <i class="fa fa-circle text-blue-m2 text-xs mr-1"></i>
+                                <span class="text-600 text-90 mr-2">Status:</span>
                                 <span class="badge badge-success badge-pill px-25"> {{invoice.status}}</span>
                             </div>
 
@@ -96,13 +104,14 @@
                         <div class="d-none d-sm-block col-2 text-95">Price</div>
                     </div>
 
-                    <div class="text-95 text-secondary-d3" style="font-size: 135%;" *ngFor="let cp of invoice.carProblem">
+                    <div class="text-95 text-secondary-d3" style="font-size: 135%;"
+                        *ngFor="let cp of invoice.carProblem">
 
                         <div class="row mb-2 mb-sm-0 py-25 bgc-default-l4">
                             <div class="col-lg-9 col-sm-5">{{cp.entitled}}</div>
                             <div class="d-none d-sm-block col-2 text-95">{{cp.price}} Ar</div>
                         </div>
-                        
+
                     </div>
 
                     <div class="row border-b-2 brc-default-l2"></div>
@@ -113,7 +122,7 @@
                         </div>
 
                         <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
-                            
+
 
                             <div class="row my-2 align-items-center bgc-primary-l3 p-2">
                                 <div class="col-7 text-right" style="font-size: large; font-weight: bold;">
@@ -126,14 +135,16 @@
 
                         </div>
                     </div>
-                    
+
                     <!-- <div style="display: flex;justify-content: center;" *ngIf="me.role === 'client' && invoice.status === 'EnAttente'">
                         <button type="button" class="btn btn-success mr-2">Accepter</button>
                         <button type="button" class="btn btn-danger">Refuser</button>
                     </div> -->
-                    
-                    <div style="display: flex;justify-content: center;" *ngIf="me.role === 'respfinance' && invoice.status === 'NonPayer'">
-                        <button type="button" class="btn btn-success mr-2">Valider paiement</button>
+
+                    <div style="display: flex;justify-content: center;"
+                        *ngIf="me.role === 'respfinance' && invoice.status === 'NonPayer'">
+                        <button type="button" (click)="validPayment()" class="btn btn-success mr-2">Valider
+                            paiement</button>
                     </div>
 
                 </div>
