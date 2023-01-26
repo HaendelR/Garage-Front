@@ -16,6 +16,7 @@ import { DetailCarRepairClientComponent } from "./pages/detail-car-repair-client
 import { AccueilFinanceComponent } from "./pages/accueil-finance/accueil-finance.component";
 import { CarFinishDeliverComponent } from "./pages/car-finish-deliver/car-finish-deliver.component";
 import { CarDepotClientComponent } from "./pages/car-depot-client/car-depot-client.component";
+import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire.component";
 
 const routes: Routes = [
   {
@@ -85,6 +86,10 @@ const routes: Routes = [
   {
     path: "car-depot-client/:clientEmail",
     component: CarDepotClientComponent,
+  },
+  {
+    path: "chiffre-affaire",
+    component: ChiffreAffaireComponent,
   },
 ];
 
