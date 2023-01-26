@@ -16,6 +16,8 @@ import { DetailCarRepairClientComponent } from "./pages/detail-car-repair-client
 import { AccueilFinanceComponent } from "./pages/accueil-finance/accueil-finance.component";
 import { CarFinishDeliverComponent } from "./pages/car-finish-deliver/car-finish-deliver.component";
 import { CarDepotClientComponent } from "./pages/car-depot-client/car-depot-client.component";
+import { RepairAverageCarComponent } from "./pages/repair-average-car/repair-average-car.component";
+import { DetailRepairAverageCarComponent } from "./pages/detail-repair-average-car/detail-repair-average-car.component";
 
 const routes: Routes = [
   {
@@ -85,6 +87,14 @@ const routes: Routes = [
   {
     path: "car-depot-client/:clientEmail",
     component: CarDepotClientComponent,
+  },
+  {
+    path: "repair-average-car",
+    component: RepairAverageCarComponent,
+  },
+  {
+    path: "detail-repair-average-car/:numberPlate/:dateTimeStop",
+    component: DetailRepairAverageCarComponent,
   },
 ];
 
