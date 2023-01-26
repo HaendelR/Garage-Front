@@ -19,7 +19,14 @@ import { InvoiceService } from "src/app/services/invoice.service";
 })
 export class FormDiagnosticComponent implements OnInit {
   carProblem = {
-    carProblems: [{ entitled: "", price: "", status: "EnCours", progress: 0 }],
+    carProblems: [
+      {
+        entitled: "",
+        price: "",
+        status: "EnCours",
+        progress: 0,
+      },
+    ],
   };
 
   formule: FormGroup = this.formBuilder.group({
@@ -106,7 +113,12 @@ export class FormDiagnosticComponent implements OnInit {
     if (this.carProblems.length > 1) this.carProblems.removeAt(index);
     else
       this.carProblems.patchValue([
-        { entitled: null, price: null, status: "EnCours", progress: 0 },
+        {
+          entitled: null,
+          price: null,
+          status: "EnCours",
+          progress: 0,
+        },
       ]);
   }
 
