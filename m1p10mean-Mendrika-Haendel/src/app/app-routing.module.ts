@@ -18,6 +18,7 @@ import { CarFinishDeliverComponent } from "./pages/car-finish-deliver/car-finish
 import { CarDepotClientComponent } from "./pages/car-depot-client/car-depot-client.component";
 import { RepairAverageCarComponent } from "./pages/repair-average-car/repair-average-car.component";
 import { DetailRepairAverageCarComponent } from "./pages/detail-repair-average-car/detail-repair-average-car.component";
+import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire.component";
 
 const routes: Routes = [
   {
@@ -95,6 +96,10 @@ const routes: Routes = [
   {
     path: "detail-repair-average-car/:numberPlate/:dateTimeStop",
     component: DetailRepairAverageCarComponent,
+  },
+  {
+    path: "chiffre-affaire",
+    component: ChiffreAffaireComponent,
   },
 ];
 
