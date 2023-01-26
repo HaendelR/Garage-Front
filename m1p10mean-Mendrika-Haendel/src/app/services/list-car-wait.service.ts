@@ -32,5 +32,5 @@ export class ListCarWaitService {
       updateStatus: updateStatus,
     };
     return this.httpClient.put<any>(url, body);
-  }
+  }  
 }
