@@ -40,6 +40,7 @@ export class AccueilComponent implements OnInit {
             if(data.role === "respfinance") this.router.navigate(['accueil-finance']);
           }
         });
+        localStorage.setItem("tokenUser", data.token);
 
       },
       error: (e) => {

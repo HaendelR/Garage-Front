@@ -4,6 +4,8 @@ import { Observable } from "rxjs";
 import { Server } from "../server";
 import { Invoice } from "../models/invoice";
 import { ContentMail } from "../models/content-mail";
+import { ChiffreAffaireJour } from "../models/chiffre-affaire-jour";
+import { ChiffreAffaireMois } from "../models/chiffre-affaire-mois";
 
 @Injectable({
   providedIn: "root",
@@ -109,5 +111,27 @@ export class InvoiceService {
       garageLocation;
 
     return this.httpClient.get<Invoice[]>(url);
+  }
+
+  getChiffreAffaireJour(
+    garageName: string | null,
+    garageLocation: string | null,
+    dateChoisi: string
+  ): Observable<ChiffreAffaireJour[]>
+  {
+  const url = `${this.server.getUrl()}/invoice/chiffreaffairejour/`+dateChoisi+`/`+garageName+`/`+garageLocation;
+
+  return this.httpClient.get<ChiffreAffaireJour[]>(url);  
+  }
+
+  getChiffreAffaireMois(
+    garageName: string | null,
+    garageLocation: string | null,
+    mois: string,
+    annee: string
+  ): Observable<ChiffreAffaireMois[]> {
+    const url = `${this.server.getUrl()}/invoice/chiffreaffairemois/`+mois+`/`+annee+`/`+garageName+`/`+garageLocation;
+
+  return this.httpClient.get<ChiffreAffaireMois[]>(url);
   }
 }
