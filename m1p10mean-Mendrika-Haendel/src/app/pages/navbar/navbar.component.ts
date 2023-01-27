@@ -1,23 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { Users } from 'src/app/models/users';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthentificationService } from "src/app/services/authentification.service";
+import { Users } from "src/app/models/users";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.css"],
 })
-export class NavbarComponent implements OnInit{
-
-  checkbar= false;
+export class NavbarComponent implements OnInit {
+  checkbar = false;
   me!: Users;
 
-
   constructor(
-    private router : Router,
-    private authservice: AuthentificationService,
-  ) { }
+    private router: Router,
+    private authservice: AuthentificationService
+  ) {}
 
   // check() {
   //   const token = localStorage.getItem('tokenUser');
@@ -29,15 +27,14 @@ export class NavbarComponent implements OnInit{
   // }
 
   userme() {
-    this.authservice.userconnecte()
-    .subscribe({
-      next : data => {
-       this.me=data;
-      this.checkbar = true;
+    this.authservice.userconnecte().subscribe({
+      next: (data) => {
+        this.me = data;
+        this.checkbar = true;
       },
       error: (e) => {
         console.log(e.error);
-      }
+      },
     });
   }
 
@@ -48,7 +45,6 @@ export class NavbarComponent implements OnInit{
 
   logout() {
     localStorage.removeItem("tokenUser");
-    this.router.navigate(['']);
+    this.router.navigate([""]);
   }
-
 }

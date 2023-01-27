@@ -4,11 +4,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="titlepage">
-                    <h2>Réparation véhicule</h2>
+                    <h2>Historique : Réparation véhicule</h2>
                     <br><label>{{carRep?.carMark}} {{carRep?.carModel}} {{carRep?.color}}</label><br>
                     <label>Matricule : {{carRep?.numberPlate}}</label>
-                    <p>Temps de la réparation : <b> {{(timeRepair)}} min</b></p>
-                    <p>Temps moyenne de la réparation : <b> {{averageRepair}} min</b></p>
+                    <p>Status de la réparation <b>{{carRep?.status}}</b></p>
+                    <br><label style="color: black;">Temps de réparation : <b style="color: red;">{{timeRepair}}
+                            Min</b></label>
+                    <br><label style="color:black;">Montant total : <b style="color: red;">{{carRep?.amount|
+                            number:'1.0-3'}}
+                            Ar</b></label>
+                    <br><label style="color: green;">{{carRep?.invoiceStatus}} et Récuperer</label>
                 </div>
             </div>
         </div>
@@ -17,18 +22,28 @@
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
             <tr>
-                <th>Problem</th>
+                <th>Avancement</th>
                 <th>Status</th>
+                <th>Problem</th>
+                <th>Prix</th>
+
             </tr>
         </thead>
         <tbody style="height: 400px !important;">
             <tr *ngFor="let pr of carRep.carProblem; let i=index">
                 <td>
+                    <p>{{pr.status}}</p>
+                </td>
+                <td>
+                    <p>{{pr.progress}}%</p>
+                </td>
+                <td>
                     <p class="fw-normal mb-1">{{pr.entitled}}</p>
                 </td>
                 <td>
-                    <p>{{pr.status}}</p>
+                    <p class="fw-normal mb-1">{{pr.price| number:'1.0-3'}} Ar</p>
                 </td>
+
             </tr>
         </tbody>
     </table>

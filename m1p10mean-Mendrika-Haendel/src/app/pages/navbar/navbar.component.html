@@ -5,6 +5,7 @@
    <a routerLink="/voiture-diagnostiques">Facture des véhicules diagnostiqués </a>
    <a routerLink="/list-car-repair-client">Véhicules en réparations </a>
    <a routerLink="/car-finish-deliver">Récuperation voiture</a>
+   <a routerLink="/history-car-repair">Historique de réparation</a>
 </div>
 
 <div *ngIf="me?.role === 'respatelier'" id="mySidepanel" class="sidepanel">
@@ -19,38 +20,45 @@
    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
    <a routerLink="/accueil-finance">Facture des véhicules diagnostiqués </a>
    <div class="dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#" role="button" aria-haspopup="true" aria-expanded="false">Statistiques</a>
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#" role="button"
+         aria-haspopup="true" aria-expanded="false">Statistiques</a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
          <a class="dropdown-item" routerLink="/chiffre-affaire">Chiffre d'affaires</a>
          <a class="dropdown-item" routerLink="/repair-average-car">Temps moyenne</a>
-         <a class="dropdown-item" >Something else here</a>
+         <a class="dropdown-item">Something else here</a>
       </div>
    </div>
-   
+
 </div>
 
 <header>
    <!-- header inner -->
-   <div class="header">
+   <div class="header" style="background-color: #0f98f8; height: 69px; display: flex; align-items: center;">
       <div class="container-fluid">
          <div class="row">
             <div class="col-md-4 col-sm-4">
                <div class="logo">
-                  <a href="index.html"><img src="./assets/images/logo.png" alt="#" /></a>
+                  <a href="index.html" style="font-size: 17px;
+                  line-height: 0px;;">Garage MEHA</a>
                </div>
             </div>
 
             <div *ngIf="checkbar" class="col-md-4 col-sm-4">
-               <p>{{me.name}} {{me.surname}}</p>
+               <!-- <p>{{me.name}} {{me.surname}}</p> -->
             </div>
 
             <div *ngIf="checkbar" class="col-md-4 col-sm-4">
                <div class="right_bottun">
-                  <ul class="conat_info d_none ">
-                     <li><a href="#"><i class="fa fa-user" role="button" (click)="logout()" aria-hidden="true"
-                              style="background-color: #0f98f8;"></i></a></li>
-                     <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true" style="background-color: #0f98f8;"></i></a></li> -->
-                  </ul>
+                  <div class="dropdown">
+                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#"
+                        role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: tomato;">
+
+                        <a class="dropdown-item" routerLink="/" role="button" (click)="logout()"
+                           aria-hidden="true">Déconnexion</a>
+                     </div>
+                  </div>
+
                   <button class="openbtn" onclick="openNav()"><img src="./assets/images/menu_icon.png" alt="#" />
                   </button>
                </div>

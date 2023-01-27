@@ -26,6 +26,8 @@ import { RepairAverageCarComponent } from "./pages/repair-average-car/repair-ave
 import { DetailRepairAverageCarComponent } from "./pages/detail-repair-average-car/detail-repair-average-car.component";
 import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire.component";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { HistoryRepairComponent } from './pages/history-repair/history-repair.component';
+import { HistoryRepairDetailComponent } from './pages/history-repair-detail/history-repair-detail.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { Ng2SearchPipeModule } from "ng2-search-filter";
     RepairAverageCarComponent,
     DetailRepairAverageCarComponent,
     ChiffreAffaireComponent,
+    HistoryRepairComponent,
+    HistoryRepairDetailComponent,
   ],
   imports: [
     BrowserModule,

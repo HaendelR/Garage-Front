@@ -25,6 +25,7 @@ export class CarFinishDeliverComponent {
   finish = [""];
   delivery = [""];
   testCar!: boolean;
+  message = "";
 
   ngOnInit(): void {
     this.getCar();
@@ -91,7 +92,6 @@ export class CarFinishDeliverComponent {
         carTem?.invoiceStatus === "Payer" &&
         carTem.carDepotStatus === "diagnostiquer"
       ) {
-        console.log("erreur be ");
         this.testCar = false;
       } else {
         this.testCar = true;
@@ -103,7 +103,7 @@ export class CarFinishDeliverComponent {
         event.previousIndex,
         event.currentIndex
       );
-
+      this.message ="Vehicule récuperer"
       this.carFinish
         .updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair(
           this.delivery[event.currentIndex],

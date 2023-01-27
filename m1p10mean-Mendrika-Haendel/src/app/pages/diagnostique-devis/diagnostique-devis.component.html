@@ -101,7 +101,7 @@
 
                     <div class="row text-600 text-white bgc-default-tp1 py-25" style="font-size: 135%;">
                         <div class="col-lg-9 col-sm-5">Description</div>
-                        <div class="d-none d-sm-block col-2 text-95">Price</div>
+                        <div class="d-none d-sm-block col-2 text-95">Prix</div>
                     </div>
 
                     <div class="text-95 text-secondary-d3" style="font-size: 135%;"
@@ -109,7 +109,7 @@
 
                         <div class="row mb-2 mb-sm-0 py-25 bgc-default-l4">
                             <div class="col-lg-9 col-sm-5">{{cp.entitled}}</div>
-                            <div class="d-none d-sm-block col-2 text-95">{{cp.price}} Ar</div>
+                            <div class="d-none d-sm-block col-2 text-95">{{cp.price| number:'1.0-3'}} Ar</div>
                         </div>
 
                     </div>
@@ -126,10 +126,10 @@
 
                             <div class="row my-2 align-items-center bgc-primary-l3 p-2">
                                 <div class="col-7 text-right" style="font-size: large; font-weight: bold;">
-                                    Total Amount
+                                    Montant total
                                 </div>
                                 <div class="col-5">
-                                    <span class="text-150 text-success-d3 opacity-2">{{invoice.amount}} Ar</span>
+                                    <span class="text-150 text-success-d3 opacity-2">{{invoice.amount| number:'1.0-3'}} Ar</span>
                                 </div>
                             </div>
 

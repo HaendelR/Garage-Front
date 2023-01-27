@@ -5,6 +5,7 @@
             <div class="col-md-12">
                 <div class="titlepage">
                     <h2>Récuperation véhicule</h2>
+                    <label style="color: green;">{{message}}</label>
                 </div>
             </div>
         </div>
@@ -12,7 +13,7 @@
     <div class="containerDrag">
         <div class="card" style="width: 25rem; overflow-y: scroll;">
             <div class=" card-body">
-                <h5 class="card-title" style=" font-size: 18px !important;">Vehicule payer non récuperer</h5>
+                <h5 class="card-title" style=" font-size: 18px !important;">Vehicule terminer et payer</h5>
                 <ul class="list-group list-group-flush" id="all" cdkDropList [cdkDropListData]="finish"
                     cdkDropListConnectedTo="even" (cdkDropListDropped)="drop($event)"
                     [cdkDropListEnterPredicate]="eventCondition" class="example-list">

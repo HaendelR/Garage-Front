@@ -20,6 +20,7 @@ export class DetailRepairAverageCarComponent {
   dateTimeStop = this.route.snapshot.paramMap.get("dateTimeStop");
   carRep!: CarRepair;
   averageRepair = 0;
+  timeRepair = 0;
 
   getCar() {
     this.carDetailsReparation
@@ -27,8 +28,12 @@ export class DetailRepairAverageCarComponent {
       .subscribe({
         next: (data) => {
           this.carRep = data;
-          if (data.duration)
-            this.averageRepair = data.duration / data.carProblem.length;
+          if (data.duration) {
+            this.averageRepair = Number(
+              (data.duration / data.carProblem.length).toFixed(3)
+            );
+            this.timeRepair = Number(data.duration.toFixed(3));
+          }
         },
         error: (e) => {
           console.log(e);

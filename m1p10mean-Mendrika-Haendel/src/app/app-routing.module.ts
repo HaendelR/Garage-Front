@@ -19,6 +19,8 @@ import { CarDepotClientComponent } from "./pages/car-depot-client/car-depot-clie
 import { RepairAverageCarComponent } from "./pages/repair-average-car/repair-average-car.component";
 import { DetailRepairAverageCarComponent } from "./pages/detail-repair-average-car/detail-repair-average-car.component";
 import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire.component";
+import { HistoryRepairComponent } from "./pages/history-repair/history-repair.component";
+import { HistoryRepairDetailComponent } from "./pages/history-repair-detail/history-repair-detail.component";
 
 const routes: Routes = [
   {
@@ -100,6 +102,14 @@ const routes: Routes = [
   {
     path: "chiffre-affaire",
     component: ChiffreAffaireComponent,
+  },
+  {
+    path: "history-car-repair",
+    component: HistoryRepairComponent,
+  },
+  {
+    path: "detail-car-history/:numberPlate",
+    component: HistoryRepairDetailComponent,
   },
 ];
 

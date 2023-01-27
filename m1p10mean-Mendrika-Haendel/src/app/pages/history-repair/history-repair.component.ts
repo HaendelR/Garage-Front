@@ -3,20 +3,20 @@ import { CarRepair } from "src/app/models/car-repair";
 import { Router } from "@angular/router";
 import { Users } from "src/app/models/users";
 import { AuthentificationService } from "src/app/services/authentification.service";
-import { ListCarRepairClientService } from "src/app/services/list-car-repair-client.service";
+import { HistoryRepairService } from "src/app/services/history-repair.service";
 
 @Component({
-  selector: "app-list-car-repair-client",
-  templateUrl: "./list-car-repair-client.component.html",
-  styleUrls: ["./list-car-repair-client.component.css"],
+  selector: 'app-history-repair',
+  templateUrl: './history-repair.component.html',
+  styleUrls: ['./history-repair.component.css']
 })
-export class ListCarRepairClientComponent {
+export class HistoryRepairComponent {
   me!: Users;
   carRepair!: CarRepair[];
 
   constructor(
     private authservice: AuthentificationService,
-    private listCarRepairservice: ListCarRepairClientService,
+    private listCarRepairservice: HistoryRepairService,
     private router: Router
   ) {}
 
@@ -25,7 +25,7 @@ export class ListCarRepairClientComponent {
       next: (data) => {
         this.me = data;
         this.listCarRepairservice
-          .getAllCarRepair("EnReparation", this.me.name, this.me.surname)
+          .getAllCarRepair("Terminer", this.me.name, this.me.surname)
           .subscribe({
             next: (data) => {
               this.carRepair = data;
@@ -45,7 +45,7 @@ export class ListCarRepairClientComponent {
     this.userme();
   }
 
-  detailsProgressRepair(numberPlate: string) {
-     this.router.navigate(["detail-car-repair/" + numberPlate]);
+  detailsHistoryRepair(numberPlate: string) {
+     this.router.navigate(["detail-car-history/" + numberPlate]);
   }
 }
