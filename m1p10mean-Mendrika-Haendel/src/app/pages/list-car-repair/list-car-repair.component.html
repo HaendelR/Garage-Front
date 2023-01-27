@@ -13,6 +13,9 @@
             </div>
         </div>
     </div>
+    <div class="search" style="display: flex; justify-content: center;">
+        <input type="text" [(ngModel)]="term" class="searchTerm" placeholder="Recherche" />
+    </div><br>
 
     <div style="display: flex;justify-content: center;">
 
@@ -29,7 +32,7 @@
 
             <tbody>
 
-                <tr *ngFor="let c of carRepair">
+                <tr *ngFor="let c of carRepair  | filter: term">
                     <td>
                         <div class="d-flex align-items-center">
                             <img src="./assets/images/car.png" alt="" style="width: 45px; height: 45px"

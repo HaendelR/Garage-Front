@@ -25,6 +25,7 @@ import { CarDepotClientComponent } from "./pages/car-depot-client/car-depot-clie
 import { RepairAverageCarComponent } from "./pages/repair-average-car/repair-average-car.component";
 import { DetailRepairAverageCarComponent } from "./pages/detail-repair-average-car/detail-repair-average-car.component";
 import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire.component";
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire
     HttpClientModule,
     ReactiveFormsModule,
     DragDropModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

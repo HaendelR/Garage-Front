@@ -20,6 +20,9 @@ export class ListCarRepairComponent {
     private router: Router
   ) {}
 
+  term = "";
+  searchTerm = "";
+
   userme() {
     this.authservice.userconnecte().subscribe({
       next: (data) => {

@@ -6,13 +6,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-               <div class="titlepage">
-                  <h2>Véhicules diagnostiqués</h2>
-                  <p>La liste des véhicules déjà diagnostiqués.</p>
-               </div>
+                <div class="titlepage">
+                    <h2>Véhicules diagnostiqués</h2>
+                    <p>La liste des véhicules déjà diagnostiqués.</p>
+                </div>
             </div>
-         </div> 
+        </div>
     </div>
+    <div class="search" style="display: flex; justify-content: center;">
+        <input type="text" [(ngModel)]="term" class="searchTerm" placeholder="Recherche" />
+    </div><br>
 
     <div style="display: flex;justify-content: center;">
 
@@ -24,25 +27,21 @@
                     <th>Client</th>
                     <th>Statut</th>
                     <th></th>
-                  </tr>
+                </tr>
             </thead>
 
             <tbody>
 
-                <tr *ngFor="let i of invoices">
+                <tr *ngFor="let i of invoices | filter: term">
                     <td>
                         <div class="d-flex align-items-center">
-                            <img
-                                src="./assets/images/car.png"
-                                alt=""
-                                style="width: 45px; height: 45px"
-                                class="rounded-circle"
-                                />
+                            <img src="./assets/images/car.png" alt="" style="width: 45px; height: 45px"
+                                class="rounded-circle" />
                             <div class="ms-3">
-                              <p class="fw-bold mb-1">{{i.carMark}} {{i.carModel}}</p>
-                              <p class="badge badge-warning rounded-pill d-inline">{{i.numberPlate}}</p>
+                                <p class="fw-bold mb-1">{{i.carMark}} {{i.carModel}}</p>
+                                <p class="badge badge-warning rounded-pill d-inline">{{i.numberPlate}}</p>
                             </div>
-                          </div>
+                        </div>
                     </td>
                     <td>
                         <p class="fw-normal mb-1">{{i.clientName}} {{i.clientSurname}}</p>
@@ -64,9 +63,9 @@
                     </td>
                     <td>
                         <form (ngSubmit)="listeDiagVehicule(i.numberPlate, i.status)">
-                          <button type="submit" class="btn btn-success">
-                            Voir détail
-                          </button>
+                            <button type="submit" class="btn btn-success">
+                                Voir détail
+                            </button>
                         </form>
                     </td>
                 </tr>
