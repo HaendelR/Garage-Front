@@ -13,7 +13,9 @@
                     <br><label style="color:black;">Montant total : <b style="color: red;">{{carRep?.amount|
                             number:'1.0-3'}}
                             Ar</b></label>
-                    <br><label style="color: green;">{{carRep?.invoiceStatus}} et Récuperer</label>
+                    <br><label style="color: green;">{{carRep?.invoiceStatus}} et <label
+                            *ngIf="carRep?.carDepotStatus === 'Recuperer'">Récuperer</label> <label
+                            *ngIf="carRep?.carDepotStatus === 'diagnostiquer'">Diagnostiquer</label></label>
                 </div>
             </div>
         </div>

@@ -13,16 +13,14 @@ export class InvoiceService {
 
   updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair(
     numberPlate: string | null,
-    status: string | null,
     invoiceStatus: string | null,
     carDepotStatus: string | null,
     updateCarDepotStatus: string | null,
     updateInvoiceStatus: string | null
   ): Observable<any> {
-    const url = `${this.server.getUrl()}/carRepair/updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair`;
+    const url = `${this.server.getUrl()}/carRepair/updateCarRepairInvoiceAndStatusCarDepotAndStatusCarRepair`;
     var body = {
       numberPlate: numberPlate,
-      status: status,
       invoiceStatus: invoiceStatus,
       carDepotStatus: carDepotStatus,
       updateInvoiceStatus: updateInvoiceStatus,

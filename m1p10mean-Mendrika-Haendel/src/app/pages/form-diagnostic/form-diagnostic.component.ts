@@ -1,3 +1,4 @@
+import { getNumberOfCurrencyDigits } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -209,7 +210,11 @@ export class FormDiagnosticComponent implements OnInit {
       <br>Model du vehicule : ${
         this.carDiag.carModel
       }.<br>Couleur du vehicule : ${this.carDiag.color}.<br>
-      Coût total de réparation : ${this.getAmount(value)} Ar.<br>`,
+      Garage :${this.carDiag.garageName} à ${this.carDiag.garageLocation}
+      <br>
+      Montant total de la réparation : ${this.getAmount(value).toLocaleString(
+        "en-GB"
+      )} Ar.<br>`,
     };
     this.contentMail = mail;
     this.invoiceservice.sendEmail(this.contentMail).subscribe({

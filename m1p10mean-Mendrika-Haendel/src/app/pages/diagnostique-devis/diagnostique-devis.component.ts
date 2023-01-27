@@ -55,7 +55,6 @@ export class DiagnostiqueDevisComponent implements OnInit {
     this.invoiceservice
       .updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair(
         this.invoice.numberPlate,
-        "Terminer",
         "NonPayer",
         "diagnostiquer",
         "diagnostiquer",
