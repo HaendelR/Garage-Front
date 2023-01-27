@@ -88,7 +88,7 @@ const routes: Routes = [
     component: CarFinishDeliverComponent,
   },
   {
-    path: "car-depot-client/:clientEmail",
+    path: "car-depot-client",
     component: CarDepotClientComponent,
   },
   {

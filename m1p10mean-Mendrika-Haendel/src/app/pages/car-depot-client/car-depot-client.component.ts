@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { CarDepot } from "src/app/models/car-depot";
+import { Users } from "src/app/models/users";
+import { AuthentificationService } from "src/app/services/authentification.service";
 import { CarDepotService } from "src/app/services/car-depot.service";
 
 @Component({
@@ -11,22 +13,30 @@ import { CarDepotService } from "src/app/services/car-depot.service";
 export class CarDepotClientComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private cardepotservice: CarDepotService
+    private cardepotservice: CarDepotService,
+    private authservice: AuthentificationService
   ) {}
 
-  email = this.route.snapshot.paramMap.get("clientEmail");
-
+  user!: Users;
   cardepot!: CarDepot[];
   term = "";
   searchTerm = "";
 
   getCarDepot() {
-    this.cardepotservice.carDepotClient(this.email).subscribe({
+    this.authservice.userconnecte().subscribe({
       next: (data) => {
-        this.cardepot = data;
+        this.user = data;
+        return this.cardepotservice.carDepotClient(this.user.email).subscribe({
+          next: (data) => {
+            this.cardepot = data;
+          },
+          error: (e) => {
+            console.log(e);
+          },
+        });
       },
       error: (e) => {
-        console.log(e);
+        console.log(e.error);
       },
     });
   }

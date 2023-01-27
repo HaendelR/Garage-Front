@@ -1,7 +1,7 @@
 <div *ngIf="me?.role === 'client'" id="mySidepanel" class="sidepanel">
    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
    <a routerLink="/accueil-client">Saisie véhicule pour réparation </a>
-   <a [routerLink]="['/car-depot-client', me?.email]">Véhicules déposés </a>
+   <a routerLink="/car-depot-client">Véhicules déposés </a>
    <a routerLink="/voiture-diagnostiques">Facture des véhicules diagnostiqués </a>
    <a routerLink="/list-car-repair-client">Véhicules en réparations </a>
    <a routerLink="/car-finish-deliver">Récuperation voiture</a>
