@@ -5,39 +5,35 @@
 
     <div class="container">
         <div class="row">
-           <div class="col-md-12">
-              <div class="titlepage">
-                 <h2>Devis des véhicules</h2>
-                 <p>La liste des devis des véhicules.</p>
-              </div>
-           </div>
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Facture des véhicules</h2>
+                    <p>La liste des factures des véhicules.</p>
+                </div>
+            </div>
         </div>
-     </div>
+    </div>
 
 
-     <div style="display: flex;justify-content: center;">
+    <div style="display: flex;justify-content: center;">
         <table class="table align-middle mb-0 bg-white" style="width: 60%;text-align: center;">
             <thead class="bg-light">
                 <tr>
-                <th>Voiture</th>
-                <th>Client</th>
-                <th>Statut</th>
-                <th></th>
+                    <th>Voiture</th>
+                    <th>Client</th>
+                    <th>Statut</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let i of invoices">
                     <td>
                         <div class="d-flex align-items-center">
-                            <img
-                                src="./assets/images/auto.png"
-                                alt=""
-                                style="width: 45px; height: 45px"
-                                class="rounded-circle"
-                                />
+                            <img src="./assets/images/auto.png" alt="" style="width: 45px; height: 45px"
+                                class="rounded-circle" />
                             <div class="ms-3">
-                            <p class="fw-bold mb-1">{{i.carMark}} {{i.carModel}}</p>
-                            <p class="badge badge-warning rounded-pill d-inline">{{i.numberPlate}}</p>
+                                <p class="fw-bold mb-1">{{i.carMark}} {{i.carModel}}</p>
+                                <p class="badge badge-warning rounded-pill d-inline">{{i.numberPlate}}</p>
                             </div>
                         </div>
                     </td>
@@ -61,15 +57,15 @@
                     </td>
                     <td>
                         <form (ngSubmit)="listeDiagVehicule(i.numberPlate, i.status)">
-                        <button type="submit" class="btn btn-success">
-                            Voir détail
-                        </button>
+                            <button type="submit" class="btn btn-success">
+                                Voir détail
+                            </button>
                         </form>
                     </td>
                 </tr>
             </tbody>
         </table>
-     </div>
+    </div>
 
 
 </section>
