@@ -21,6 +21,7 @@ import { DetailRepairAverageCarComponent } from "./pages/detail-repair-average-c
 import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire.component";
 import { HistoryRepairComponent } from "./pages/history-repair/history-repair.component";
 import { HistoryRepairDetailComponent } from "./pages/history-repair-detail/history-repair-detail.component";
+import { DepensesComponent } from "./pages/depenses/depenses.component";
 
 const routes: Routes = [
   {
@@ -110,6 +111,10 @@ const routes: Routes = [
   {
     path: "detail-car-history/:numberPlate",
     component: HistoryRepairDetailComponent,
+  },
+  {
+    path: "charge-detail",
+    component: DepensesComponent,
   },
 ];
 

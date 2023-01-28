@@ -41,4 +41,10 @@ export class AuthentificationService {
     const urlSignup = `${this.server.getUrl()}/user/adduser`;
     return this.httpClient.post<Users>(urlSignup, utilisateur);
   }
+
+  getUserByGarage(garageName: string |null, garagLocation: string | null): Observable<Users[]> {
+    const urlUser = `${this.server.getUrl()}/user/userByGarage/`+garageName+`/`+garagLocation;
+
+    return this.httpClient.get<Users[]>(urlUser);
+  }
 }

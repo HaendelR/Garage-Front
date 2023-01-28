@@ -28,6 +28,7 @@ import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { HistoryRepairComponent } from './pages/history-repair/history-repair.component';
 import { HistoryRepairDetailComponent } from './pages/history-repair-detail/history-repair-detail.component';
+import { DepensesComponent } from './pages/depenses/depenses.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { HistoryRepairDetailComponent } from './pages/history-repair-detail/hist
     ChiffreAffaireComponent,
     HistoryRepairComponent,
     HistoryRepairDetailComponent,
+    DepensesComponent,
   ],
   imports: [
     BrowserModule,

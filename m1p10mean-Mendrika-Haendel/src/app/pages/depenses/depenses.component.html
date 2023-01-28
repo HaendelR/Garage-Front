@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<section id="vehicles" class="vehicles" style="height: 70%;">
+
+    <div class="container">
+        <div class="row">
+           <div class="col-md-12">
+              <div class="titlepage">
+                 <h2>Dépenses</h2>
+                 <p>Ajouter des dépenses pour le garage.</p>
+              </div>
+           </div>
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: center;">
+        <p>{{message}}</p>
+    </div>
+    <br>
+    <form (ngSubmit)="submit()">
+        <div class="form-inline" style="display: flex; justify-content: center;">
+            <label for="intitule">Choix dépense</label>
+            <select name="intitule" id="intitule" [(ngModel)]="intitule" class="form-control m-2">
+                <option>Choix dépense</option>
+                <option value="loyer">Loyer</option>
+                <option value="salaire">Salaire</option>
+                <option value="achatPiece">Achat de pièces</option>
+                <option value="autre">Autres dépenses</option>
+            </select>
+
+            <input type="number" name="montant" [(ngModel)]="montant" class="form-control m-2" placeholder="Montant">
+
+            <label for="salarie" *ngIf="intitule === 'salaire'">Choix salarié</label>
+            <select name="ugarage" id="salarie" [(ngModel)]="ugarage" class="form-control m-2" *ngIf="intitule === 'salaire'">
+                <option>Salarié</option>
+                <option *ngFor="let u of userGarage" value="{{u.name+':'+u.surname+':'+u.email}}">{{u.name}} {{u.surname}}</option>
+            </select>
+
+            <button type="submit" class="btn btn-success m-2">Valider</button>
+
+        </div>
+    </form>
+
+</section>
