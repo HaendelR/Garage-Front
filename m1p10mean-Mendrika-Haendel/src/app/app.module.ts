@@ -29,6 +29,7 @@ import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { HistoryRepairComponent } from './pages/history-repair/history-repair.component';
 import { HistoryRepairDetailComponent } from './pages/history-repair-detail/history-repair-detail.component';
 import { DepensesComponent } from './pages/depenses/depenses.component';
+import { BeneficeComponent } from './pages/benefice/benefice.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { DepensesComponent } from './pages/depenses/depenses.component';
     HistoryRepairComponent,
     HistoryRepairDetailComponent,
     DepensesComponent,
+    BeneficeComponent,
   ],
   imports: [
     BrowserModule,

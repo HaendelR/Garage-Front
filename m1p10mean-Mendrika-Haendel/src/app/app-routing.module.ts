@@ -22,6 +22,7 @@ import { ChiffreAffaireComponent } from "./pages/chiffre-affaire/chiffre-affaire
 import { HistoryRepairComponent } from "./pages/history-repair/history-repair.component";
 import { HistoryRepairDetailComponent } from "./pages/history-repair-detail/history-repair-detail.component";
 import { DepensesComponent } from "./pages/depenses/depenses.component";
+import { BeneficeComponent } from "./pages/benefice/benefice.component";
 
 const routes: Routes = [
   {
@@ -115,6 +116,10 @@ const routes: Routes = [
   {
     path: "charge-detail",
     component: DepensesComponent,
+  },
+  {
+    path: "benefice",
+    component: BeneficeComponent,
   },
 ];
 
