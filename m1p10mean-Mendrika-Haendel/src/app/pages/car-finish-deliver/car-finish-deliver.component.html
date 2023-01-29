@@ -13,7 +13,7 @@
     <div class="containerDrag">
         <div class="card" style="width: 25rem; overflow-y: scroll;">
             <div class=" card-body">
-                <h5 class="card-title" style=" font-size: 18px !important;">Vehicule terminer et payer</h5>
+                <h5 class="card-title" style=" font-size: 18px !important;">Véhicule(s) terminé(s) et payé(s)</h5>
                 <ul class="list-group list-group-flush" id="all" cdkDropList [cdkDropListData]="finish"
                     cdkDropListConnectedTo="even" (cdkDropListDropped)="drop($event)"
                     [cdkDropListEnterPredicate]="eventCondition" class="example-list">
@@ -24,7 +24,7 @@
 
         <div class="card" style="width: 25rem; overflow-y: scroll;">
             <div class="card-body">
-                <h5 class="card-title" style=" font-size: 18px !important;">Déplacer ici pour récuperer</h5>
+                <h5 class="card-title" style=" font-size: 18px !important;">Déplacer ici pour les récupérer</h5>
                 <ul class="list-group list-group-flush" id="even" cdkDropList [cdkDropListData]="delivery"
                     cdkDropListConnectedTo="all" class="example-list" (cdkDropListDropped)="drop($event)"
                     [cdkDropListEnterPredicate]="eventPredict">

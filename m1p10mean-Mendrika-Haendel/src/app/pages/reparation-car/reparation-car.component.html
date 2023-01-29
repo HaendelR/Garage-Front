@@ -7,9 +7,10 @@
                     <h2>Réparation véhicule</h2>
                     <br><label>{{carRep?.carMark}} {{carRep?.carModel}} {{carRep?.color}}</label><br>
                     <label>Matricule : {{carRep?.numberPlate}}</label>
-                    <p>Progression global de la réparation <b>{{carRep?.globalProgress}}%</b></p>
+                    <p>Progression globale de la réparation <b>{{carRep?.globalProgress}}%</b></p>
                     <p style="color: green;">{{message}}</p>
-                    <button *ngIf="message != ''" (click)="terminer()">Veuillez cliquer terminer</button>
+                    <br>
+                    <button *ngIf="message != ''" (click)="terminer()" class="btn btn-success">Veuillez cliquer terminer</button>
                 </div>
             </div>
         </div>

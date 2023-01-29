@@ -3,7 +3,7 @@ import { AuthentificationService } from "src/app/services/authentification.servi
 import { Users } from "src/app/models/users";
 import { CarRepair } from "src/app/models/car-repair";
 import { ReparationCarService } from "src/app/services/reparation-car.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ContentMail } from "src/app/models/content-mail";
 
 @Component({
@@ -15,7 +15,8 @@ export class ReparationCarComponent {
   constructor(
     private authservice: AuthentificationService,
     private carReparation: ReparationCarService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   numberPlate = this.route.snapshot.paramMap.get("numberPlate");
   advance: any = {};
@@ -147,11 +148,14 @@ export class ReparationCarComponent {
       .subscribe({
         next: (data) => {
           console.log(data);
+          this.router.navigate(["/list-car-repair"]);
         },
         error: (e) => {
           console.log(e);
         },
       });
+
+    
   }
 
   async ngOnInit(): Promise<void> {

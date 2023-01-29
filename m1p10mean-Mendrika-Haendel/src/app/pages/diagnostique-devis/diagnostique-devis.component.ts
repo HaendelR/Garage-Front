@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Invoice } from "src/app/models/invoice";
 import { InvoiceService } from "src/app/services/invoice.service";
 import { Users } from "src/app/models/users";
@@ -14,7 +14,8 @@ export class DiagnostiqueDevisComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private invoiceservice: InvoiceService,
-    private authservice: AuthentificationService
+    private authservice: AuthentificationService,
+    private router: Router
   ) {}
 
   numberPlate = this.route.snapshot.paramMap.get("numberPlate");
@@ -85,5 +86,7 @@ export class DiagnostiqueDevisComponent implements OnInit {
       });
 
     this.message = "Payement effectuer";
+
+    this.router.navigate(["/accueil-finance"]);
   }
 }

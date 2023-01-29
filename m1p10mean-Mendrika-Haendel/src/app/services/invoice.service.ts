@@ -20,7 +20,7 @@ export class InvoiceService {
     updateCarDepotStatus: string | null,
     updateInvoiceStatus: string | null
   ): Observable<any> {
-    const url = `${this.server.getUrl()}/carRepair/updateCarRepairInvoiceAndStatusCarDepotAndStatusCarRepair`;
+    const url = `${this.server.getUrl()}/carRepair/updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair`;
     var body = {
       numberPlate: numberPlate,
       invoiceStatus: invoiceStatus,
