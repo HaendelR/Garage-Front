@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AccueilComponent implements OnInit {
 
-  login='';
-  mdp='';
+  login='jeanrakoto703@gmail.com';
+  mdp='123456';
   message!: string;
 
   constructor(
