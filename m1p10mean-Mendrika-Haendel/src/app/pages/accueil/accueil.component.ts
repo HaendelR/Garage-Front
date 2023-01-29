@@ -13,6 +13,9 @@ export class AccueilComponent implements OnInit {
   mdp='123456';
   message!: string;
 
+  button = 'Se connecter';
+  isLoading=false;
+
   constructor(
     private router : Router,
     private authservice: AuthentificationService,
@@ -28,6 +31,9 @@ export class AccueilComponent implements OnInit {
 
   loginClick() {
     // console.log(this.login+" "+this.mdp);
+    this.isLoading = true;
+    this.button = 'En cours';
+
     this.authservice.login(this.login, this.mdp)
     .subscribe({
       next : data => {
@@ -47,5 +53,10 @@ export class AccueilComponent implements OnInit {
         this.message = e.error.error;
       }
     });
+
+    setTimeout(() => {
+      this.isLoading = false;
+      this.button = 'Submit';
+    }, 5000)
   }
 }

@@ -27,6 +27,9 @@ export class ClientAccueilComponent implements OnInit {
 
   message!: string; 
 
+  button = 'Déposer';
+  isLoading = false;
+
   constructor(
     private authservice: AuthentificationService,
     private carservice: CarService,
@@ -61,6 +64,10 @@ export class ClientAccueilComponent implements OnInit {
   }
 
   async depotVoiture() {
+
+    this.isLoading = true;
+    this.button = 'En cours';
+
     var car = {
       clientName: this.me.name,
       clientSurname: this.me.surname,
@@ -154,5 +161,10 @@ export class ClientAccueilComponent implements OnInit {
 
     
     this.message = "Votre véhicule est bien déposé pour la réparation";
+    
+    setTimeout(() => {
+      this.isLoading = false;
+      this.button = 'Submit';
+    }, 5000)
   }
 }

@@ -36,7 +36,7 @@
                                        [(ngModel)]="mdp" name="mdp">
                                  </div>
                                  <div class="col-md-12">
-                                    <button class="get_now" type="submit">Se connecter</button>
+                                    <button class="get_now" type="submit" [disabled]="isLoading"><i class="fa" [ngClass]="{'fa-spin fa-spinner': isLoading, null : !isLoading}"></i> {{button}}</button>
                                  </div>
                               </form>
                               <br>
