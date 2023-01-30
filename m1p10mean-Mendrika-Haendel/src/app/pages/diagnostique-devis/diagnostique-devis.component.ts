@@ -23,6 +23,7 @@ export class DiagnostiqueDevisComponent implements OnInit {
   invoice!: Invoice;
   me!: Users;
   message = "";
+  isLoading = true;
 
   ngOnInit(): void {
     this.invoiceMatriculeStatus(), this.userme();
@@ -34,6 +35,7 @@ export class DiagnostiqueDevisComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.invoice = data;
+          this.isLoading = false;
         },
         error: (e) => {
           console.log(e);

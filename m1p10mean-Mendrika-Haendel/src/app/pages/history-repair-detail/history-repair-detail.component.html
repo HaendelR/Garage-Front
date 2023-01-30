@@ -1,4 +1,9 @@
 <app-navbar></app-navbar>
+
+<div class="loader_bg" *ngIf="isLoading === true">
+    <div class="loader"><img src="./assets/images/loading.gif" alt="#" /></div>
+</div>
+
 <section id="vehicles" class="vehicles" style="height: 70%;">
     <div class="container">
         <div class="row">
@@ -24,8 +29,8 @@
     <table class="table align-middle mb-0 bg-white" style="width: 70%;margin-left: 15%;">
         <thead class="bg-light">
             <tr>
-                <th>Avancement</th>
                 <th>Status</th>
+                <th>Avancement</th>
                 <th>Problem</th>
                 <th>Prix</th>
 

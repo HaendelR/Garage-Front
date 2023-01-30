@@ -13,6 +13,7 @@ import { ListCarWaitService } from "src/app/services/list-car-wait.service";
 export class ListCarWaitComponent {
   me!: Users;
   carRepair!: CarRepair[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -22,7 +23,7 @@ export class ListCarWaitComponent {
 
   term = "";
   searchTerm = "";
-  
+
   userme() {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
@@ -37,6 +38,7 @@ export class ListCarWaitComponent {
           .subscribe({
             next: (data) => {
               this.carRepair = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

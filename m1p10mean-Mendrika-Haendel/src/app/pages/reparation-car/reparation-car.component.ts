@@ -27,6 +27,9 @@ export class ReparationCarComponent {
   finish = [""];
   message = "";
   contentMail!: ContentMail;
+  isLoading = true;
+  isLoadingButton = false;
+  button = "Valider";
 
   getCar() {
     this.authservice.userconnecte().subscribe({
@@ -42,6 +45,7 @@ export class ReparationCarComponent {
           .subscribe({
             next: (data) => {
               this.carRep = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);
@@ -55,6 +59,8 @@ export class ReparationCarComponent {
   }
 
   async changeProgress(pr: string, progress: number) {
+    this.isLoadingButton = true;
+    this.button = "Traitement en cours";
     let totalProgressPr = 0;
     let globalProgress = 0;
 
@@ -120,6 +126,11 @@ export class ReparationCarComponent {
         "Réparation déja terminer ou l'avancement saisie est supérieur à 100";
     }
     this.getCar();
+
+    setTimeout(() => {
+      this.isLoadingButton = false;
+      this.button = "Valider";
+    }, 5000);
   }
 
   terminer() {
@@ -154,8 +165,6 @@ export class ReparationCarComponent {
           console.log(e);
         },
       });
-
-    
   }
 
   async ngOnInit(): Promise<void> {

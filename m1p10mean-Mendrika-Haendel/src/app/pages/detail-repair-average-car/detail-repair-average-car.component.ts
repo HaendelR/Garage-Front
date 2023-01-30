@@ -21,6 +21,7 @@ export class DetailRepairAverageCarComponent {
   carRep!: CarRepair;
   averageRepair = 0;
   timeRepair = 0;
+  isLoading = true;
 
   getCar() {
     this.carDetailsReparation
@@ -34,6 +35,7 @@ export class DetailRepairAverageCarComponent {
             );
             this.timeRepair = Number(data.duration.toFixed(3));
           }
+          this.isLoading = false;
         },
         error: (e) => {
           console.log(e);

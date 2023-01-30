@@ -13,6 +13,7 @@ import { Router } from "@angular/router";
 export class AtelierAccueilComponent implements OnInit {
   me!: Users;
   carDepot!: CarDepot[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -32,6 +33,7 @@ export class AtelierAccueilComponent implements OnInit {
           .subscribe({
             next: (data) => {
               this.carDepot = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

@@ -6,13 +6,14 @@ import { AuthentificationService } from "src/app/services/authentification.servi
 import { HistoryRepairService } from "src/app/services/history-repair.service";
 
 @Component({
-  selector: 'app-history-repair',
-  templateUrl: './history-repair.component.html',
-  styleUrls: ['./history-repair.component.css']
+  selector: "app-history-repair",
+  templateUrl: "./history-repair.component.html",
+  styleUrls: ["./history-repair.component.css"],
 })
 export class HistoryRepairComponent {
   me!: Users;
   carRepair!: CarRepair[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -29,6 +30,7 @@ export class HistoryRepairComponent {
           .subscribe({
             next: (data) => {
               this.carRepair = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);
@@ -46,6 +48,6 @@ export class HistoryRepairComponent {
   }
 
   detailsHistoryRepair(numberPlate: string) {
-     this.router.navigate(["detail-car-history/" + numberPlate]);
+    this.router.navigate(["detail-car-history/" + numberPlate]);
   }
 }

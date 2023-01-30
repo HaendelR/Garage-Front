@@ -21,6 +21,7 @@ export class HistoryRepairDetailComponent {
   user!: Users;
   carRep!: CarRepair;
   timeRepair = 0;
+  isLoading = true;
 
   getCar() {
     this.authservice.userconnecte().subscribe({
@@ -38,6 +39,7 @@ export class HistoryRepairDetailComponent {
               this.carRep = data;
               if (data.duration)
                 this.timeRepair = Number(data.duration.toFixed(3));
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

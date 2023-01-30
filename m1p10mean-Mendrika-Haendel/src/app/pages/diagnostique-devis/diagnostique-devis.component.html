@@ -1,5 +1,10 @@
 <app-navbar></app-navbar>
 
+<div class="loader_bg" *ngIf="isLoading === true">
+    <div class="loader"><img src="./assets/images/loading.gif" alt="#" /></div>
+</div>
+
+
 <section id="vehicles" class="vehicles" style="height: 70%;">
 
     <div class="container">
@@ -13,7 +18,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="container px-0">
         <div class="row mt-4">
@@ -129,7 +133,8 @@
                                     Montant total
                                 </div>
                                 <div class="col-5">
-                                    <span class="text-150 text-success-d3 opacity-2">{{invoice.amount| number:'1.0-3'}} Ar</span>
+                                    <span class="text-150 text-success-d3 opacity-2">{{invoice.amount| number:'1.0-3'}}
+                                        Ar</span>
                                 </div>
                             </div>
 

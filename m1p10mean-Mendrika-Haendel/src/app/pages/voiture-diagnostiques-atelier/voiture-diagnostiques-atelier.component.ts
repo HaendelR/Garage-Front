@@ -13,6 +13,7 @@ import { InvoiceService } from "src/app/services/invoice.service";
 export class VoitureDiagnostiquesAtelierComponent implements OnInit {
   me!: Users;
   invoices!: Invoice[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -37,6 +38,7 @@ export class VoitureDiagnostiquesAtelierComponent implements OnInit {
           .subscribe({
             next: (data) => {
               this.invoices = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

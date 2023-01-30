@@ -13,6 +13,7 @@ import { RepairAverageCarService } from "src/app/services/repair-average-car.ser
 export class RepairAverageCarComponent {
   me!: Users;
   carRepair!: CarRepair[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -33,6 +34,7 @@ export class RepairAverageCarComponent {
           .subscribe({
             next: (data) => {
               this.carRepair = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

@@ -18,6 +18,7 @@ export class DetailCarRepairClientComponent {
   numberPlate = this.route.snapshot.paramMap.get("numberPlate");
   user!: Users;
   carRep!: CarRepair;
+  isLoading = true;
 
   getCar() {
     this.authservice.userconnecte().subscribe({
@@ -33,7 +34,7 @@ export class DetailCarRepairClientComponent {
           .subscribe({
             next: (data) => {
               this.carRep = data;
-              console.log(data);
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

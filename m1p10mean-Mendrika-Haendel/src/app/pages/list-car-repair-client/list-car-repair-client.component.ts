@@ -13,6 +13,7 @@ import { ListCarRepairClientService } from "src/app/services/list-car-repair-cli
 export class ListCarRepairClientComponent {
   me!: Users;
   carRepair!: CarRepair[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -29,6 +30,7 @@ export class ListCarRepairClientComponent {
           .subscribe({
             next: (data) => {
               this.carRepair = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);
@@ -46,6 +48,6 @@ export class ListCarRepairClientComponent {
   }
 
   detailsProgressRepair(numberPlate: string) {
-     this.router.navigate(["detail-car-repair/" + numberPlate]);
+    this.router.navigate(["detail-car-repair/" + numberPlate]);
   }
 }

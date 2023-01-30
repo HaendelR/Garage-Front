@@ -26,6 +26,7 @@ export class CarFinishDeliverComponent {
   delivery = [""];
   testCar!: boolean;
   message = "";
+  isLoading = true;
 
   ngOnInit(): void {
     this.getCar();
@@ -61,6 +62,7 @@ export class CarFinishDeliverComponent {
                   this.delivery.push(this.carRep[i].numberPlate);
                 }
               }
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);
@@ -103,7 +105,7 @@ export class CarFinishDeliverComponent {
         event.previousIndex,
         event.currentIndex
       );
-      this.message ="Vehicule récuperer"
+      this.message = "Vehicule récuperer";
       this.carFinish
         .updateCarRepairStatusInvoiceAndStatusCarDepotAndStatusCarRepair(
           this.delivery[event.currentIndex],

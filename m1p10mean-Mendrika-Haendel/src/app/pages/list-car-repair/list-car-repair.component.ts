@@ -13,6 +13,7 @@ import { ListCarRepairService } from "src/app/services/list-car-repair.service";
 export class ListCarRepairComponent {
   me!: Users;
   carRepair!: CarRepair[];
+  isLoading = true;
 
   constructor(
     private authservice: AuthentificationService,
@@ -37,6 +38,7 @@ export class ListCarRepairComponent {
           .subscribe({
             next: (data) => {
               this.carRepair = data;
+              this.isLoading = false;
             },
             error: (e) => {
               console.log(e);

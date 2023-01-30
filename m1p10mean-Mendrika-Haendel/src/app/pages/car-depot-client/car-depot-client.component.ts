@@ -1,3 +1,4 @@
+import { trigger } from "@angular/animations";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { CarDepot } from "src/app/models/car-depot";
@@ -21,6 +22,7 @@ export class CarDepotClientComponent implements OnInit {
   cardepot!: CarDepot[];
   term = "";
   searchTerm = "";
+  isLoading = true;
 
   getCarDepot() {
     this.authservice.userconnecte().subscribe({
@@ -29,6 +31,7 @@ export class CarDepotClientComponent implements OnInit {
         return this.cardepotservice.carDepotClient(this.user.email).subscribe({
           next: (data) => {
             this.cardepot = data;
+            this.isLoading = false;
           },
           error: (e) => {
             console.log(e);
