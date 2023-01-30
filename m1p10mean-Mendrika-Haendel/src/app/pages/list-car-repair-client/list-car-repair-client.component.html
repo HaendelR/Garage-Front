@@ -57,7 +57,7 @@
                         <p class="badge badge-primary rounded-pill d-inline">{{c.garageLocation}}</p>
                     </td>
                     <td>
-                        <p class="fw-normal mb-1">{{c.globalProgress}}%</p>
+                        <p class="fw-normal mb-1">{{c.globalProgress.toFixed(2)}}%</p>
                     </td>
                     <td>
                         <form (ngSubmit)="detailsProgressRepair(c.numberPlate)">
