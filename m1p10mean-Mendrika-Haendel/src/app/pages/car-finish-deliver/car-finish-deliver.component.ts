@@ -115,9 +115,7 @@ export class CarFinishDeliverComponent {
           "Recuperer"
         )
         .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
+          next: (data) => {},
           error: (e) => {
             console.log(e);
           },
@@ -130,9 +128,7 @@ export class CarFinishDeliverComponent {
           "Recuperer"
         )
         .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
+          next: (data) => {},
           error: (e) => {
             console.log(e);
           },

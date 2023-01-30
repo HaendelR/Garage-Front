@@ -27,7 +27,6 @@ export class AtelierAccueilComponent implements OnInit {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
         this.me = data;
-        console.log(this.me.garageLocation);
         this.cardepotservice
           .getCarDepose(this.me.garageName, this.me.garageLocation)
           .subscribe({
@@ -52,7 +51,6 @@ export class AtelierAccueilComponent implements OnInit {
   }
 
   valueCar(a: CarDepot) {
-    console.log(a.numberPlate);
     this.router.navigate(["diagnostic-form/" + a.numberPlate]);
   }
 }

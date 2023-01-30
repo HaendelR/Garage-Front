@@ -86,9 +86,7 @@ export class ReparationCarComponent {
           globalProgress
         )
         .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
+          next: (data) => {},
           error: (e) => {
             console.log(e);
           },
@@ -102,9 +100,7 @@ export class ReparationCarComponent {
           globalProgress
         )
         .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
+          next: (data) => {},
           error: (e) => {
             console.log(e);
           },
@@ -112,9 +108,7 @@ export class ReparationCarComponent {
       this.carReparation
         .updateStatusCarProblem(this.numberPlate, pr, "Terminer")
         .subscribe({
-          next: (data) => {
-            console.log(data);
-          },
+          next: (data) => {},
           error: (e) => {
             console.log(e);
           },
@@ -143,9 +137,7 @@ export class ReparationCarComponent {
     };
     this.contentMail = mail;
     this.carReparation.sendEmail(this.contentMail).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
+      next: (data) => {},
       error: (e) => {
         console.log(e);
       },
@@ -158,7 +150,6 @@ export class ReparationCarComponent {
       )
       .subscribe({
         next: (data) => {
-          console.log(data);
           this.router.navigate(["/list-car-repair"]);
         },
         error: (e) => {

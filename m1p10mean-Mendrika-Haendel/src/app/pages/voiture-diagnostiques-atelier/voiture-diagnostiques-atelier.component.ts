@@ -27,7 +27,6 @@ export class VoitureDiagnostiquesAtelierComponent implements OnInit {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
         this.me = data;
-        console.log(this.me.garageLocation);
         this.invoiceservice
           .findInvoiceByUserAndGarage(
             this.me.garageName,

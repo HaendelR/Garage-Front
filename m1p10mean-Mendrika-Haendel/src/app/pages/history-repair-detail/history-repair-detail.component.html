@@ -14,7 +14,7 @@
                     <label>Matricule : {{carRep?.numberPlate}}</label>
                     <p>Status de la réparation <b>{{carRep?.status}}</b></p>
                     <br><label style="color: black;">Temps de réparation : <b style="color: red;">{{timeRepair}}
-                            Min</b></label>
+                            ({{unite}})</b></label>
                     <br><label style="color:black;">Montant total : <b style="color: red;">{{carRep?.amount|
                             number:'1.0-3'}}
                             Ar</b></label>
@@ -39,7 +39,8 @@
         <tbody style="height: 400px !important;">
             <tr *ngFor="let pr of carRep.carProblem; let i=index">
                 <td>
-                    <p>{{pr.status}}</p>
+                    <p *ngIf="pr.status === 'EnCours'">En cours</p>
+                    <p *ngIf="pr.status === 'Terminer'">Terminer</p>
                 </td>
                 <td>
                     <p>{{pr.progress}}%</p>

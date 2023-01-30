@@ -40,7 +40,8 @@
                     <p class="fw-normal mb-1">{{pr.entitled}}</p>
                 </td>
                 <td>
-                    <p>{{pr.status}}</p>
+                    <p *ngIf="pr.status === 'EnCours'">En cours</p>
+                    <p *ngIf="pr.status === 'Terminer'">Terminer</p>
                 </td>
                 <td>
                     <form (ngSubmit)="changeProgress(pr.entitled,pr.progress)">

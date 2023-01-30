@@ -1,30 +1,28 @@
-import { Component } from '@angular/core';
-import { Users } from 'src/app/models/users';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { Router } from '@angular/router';
+import { Component } from "@angular/core";
+import { Users } from "src/app/models/users";
+import { AuthentificationService } from "src/app/services/authentification.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css']
+  selector: "app-inscription",
+  templateUrl: "./inscription.component.html",
+  styleUrls: ["./inscription.component.css"],
 })
 export class InscriptionComponent {
-
-  name='';
-  surname='';
-  numberPhone='';
-  genre='';
-  email='';
-  password='';
+  name = "";
+  surname = "";
+  numberPhone = "";
+  genre = "";
+  email = "";
+  password = "";
 
   userInscrit!: Users;
   message!: string;
 
   constructor(
     private authservice: AuthentificationService,
-    private router : Router
-  ) { }
-
+    private router: Router
+  ) {}
 
   inscription() {
     var utilisateur = {
@@ -37,24 +35,22 @@ export class InscriptionComponent {
       role: "client",
       salary: null,
       garageName: null,
-      garageLocation: null
+      garageLocation: null,
     };
 
     this.userInscrit = utilisateur;
 
-    this.authservice.inscription(this.userInscrit)
-    .subscribe({
-      next: data => {
-        console.log(data);
-        this.router.navigate(['']);
+    this.authservice.inscription(this.userInscrit).subscribe({
+      next: (data) => {
+        this.router.navigate([""]);
       },
-      error: e => {
+      error: (e) => {
         this.message = e.error.error;
-      }
+      },
     });
   }
 
   seconnecter() {
-    this.router.navigate(['']);
+    this.router.navigate([""]);
   }
 }

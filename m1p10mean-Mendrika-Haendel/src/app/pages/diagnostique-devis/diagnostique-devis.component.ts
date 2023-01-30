@@ -64,9 +64,7 @@ export class DiagnostiqueDevisComponent implements OnInit {
         "Payer"
       )
       .subscribe({
-        next: (data) => {
-          console.log(data);
-        },
+        next: (data) => {},
         error: (e) => {
           console.log(e);
         },
@@ -79,9 +77,7 @@ export class DiagnostiqueDevisComponent implements OnInit {
         "Payer"
       )
       .subscribe({
-        next: (data) => {
-          console.log(data);
-        },
+        next: (data) => {},
         error: (e) => {
           console.log(e);
         },

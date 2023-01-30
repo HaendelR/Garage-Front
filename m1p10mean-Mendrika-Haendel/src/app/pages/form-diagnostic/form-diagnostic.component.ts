@@ -163,9 +163,7 @@ export class FormDiagnosticComponent implements OnInit {
     this.voitureRepair = vdiag;
 
     this.carepairservice.insertCarRepair(this.voitureRepair).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
+      next: (data) => {},
       error: (e) => {
         console.log(e);
       },
@@ -193,9 +191,7 @@ export class FormDiagnosticComponent implements OnInit {
     this.invoice = devis;
 
     this.invoiceservice.insertInvoice(this.invoice).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
+      next: (data) => {},
       error: (e) => {
         console.log(e);
       },
@@ -218,18 +214,14 @@ export class FormDiagnosticComponent implements OnInit {
     };
     this.contentMail = mail;
     this.invoiceservice.sendEmail(this.contentMail).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
+      next: (data) => {},
       error: (e) => {
         console.log(e);
       },
     });
 
     this.cardepotservice.updateStatusCarDepot(this.matricule).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
+      next: (data) => {},
       error: (e) => {
         console.log(e);
       },

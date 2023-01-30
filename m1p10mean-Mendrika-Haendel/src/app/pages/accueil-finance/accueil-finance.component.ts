@@ -25,7 +25,6 @@ export class AccueilFinanceComponent implements OnInit {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
         this.me = data;
-        console.log(this.me.garageLocation);
         this.invoiceservice
           .findInvoiceByGarage(this.me.garageName, this.me.garageLocation)
           .subscribe({

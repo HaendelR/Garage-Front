@@ -22,6 +22,7 @@ export class HistoryRepairDetailComponent {
   carRep!: CarRepair;
   timeRepair = 0;
   isLoading = true;
+  unite = "";
 
   getCar() {
     this.authservice.userconnecte().subscribe({
@@ -38,7 +39,15 @@ export class HistoryRepairDetailComponent {
             next: (data) => {
               this.carRep = data;
               if (data.duration)
-                this.timeRepair = Number(data.duration.toFixed(3));
+                if (data.duration >= 60) {
+                  this.timeRepair = Number(
+                    Number(Math.round(data.duration) / 60).toFixed(2)
+                  );
+                  this.unite = "H.Min";
+                } else {
+                  this.timeRepair = Number(Math.round(data.duration));
+                  this.unite = "Min";
+                }
               this.isLoading = false;
             },
             error: (e) => {

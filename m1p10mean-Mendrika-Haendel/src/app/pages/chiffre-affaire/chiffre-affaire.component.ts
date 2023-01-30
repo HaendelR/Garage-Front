@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { ChiffreAffaireJour } from 'src/app/models/chiffre-affaire-jour';
-import { ChiffreAffaireMois } from 'src/app/models/chiffre-affaire-mois';
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { InvoiceService } from 'src/app/services/invoice.service';
+import { Component, OnInit } from "@angular/core";
+import { ChiffreAffaireJour } from "src/app/models/chiffre-affaire-jour";
+import { ChiffreAffaireMois } from "src/app/models/chiffre-affaire-mois";
+import { AuthentificationService } from "src/app/services/authentification.service";
+import { InvoiceService } from "src/app/services/invoice.service";
 
 @Component({
-  selector: 'app-chiffre-affaire',
-  templateUrl: './chiffre-affaire.component.html',
-  styleUrls: ['./chiffre-affaire.component.css']
+  selector: "app-chiffre-affaire",
+  templateUrl: "./chiffre-affaire.component.html",
+  styleUrls: ["./chiffre-affaire.component.css"],
 })
-export class ChiffreAffaireComponent implements OnInit{
-
+export class ChiffreAffaireComponent implements OnInit {
   annee: Array<number> = [];
   yearNow = new Date().getFullYear();
   monthNow = new Date().getMonth();
-  dateNow = new Date().getFullYear()+"-"+(this.getMonthDate(new Date().getMonth()+1))+"-"+new Date().getDate();
+  dateNow =
+    new Date().getFullYear() +
+    "-" +
+    this.getMonthDate(new Date().getMonth() + 1) +
+    "-" +
+    new Date().getDate();
 
-  dateJour : string = this.dateNow;
-  anneeNow : string = ""+this.yearNow;
-  moisNow : string = ""+(new Date().getMonth()+1);
+  dateJour: string = this.dateNow;
+  anneeNow: string = "" + this.yearNow;
+  moisNow: string = "" + (new Date().getMonth() + 1);
 
   garageName!: string | null;
   garageLocation!: string | null;
@@ -31,19 +35,18 @@ export class ChiffreAffaireComponent implements OnInit{
   ) {}
 
   getAnnee() {
-    for(var i=1999; i<=this.yearNow; i++) {
+    for (var i = 1999; i <= this.yearNow; i++) {
       this.annee.push(i);
     }
-    console.log("dateAjd :"+this.dateNow);
   }
 
   getMonthDate(month: number) {
     var result = "";
 
-    if(month < 10) {
-      result = "0"+month;
+    if (month < 10) {
+      result = "0" + month;
     } else {
-      result = ""+month;
+      result = "" + month;
     }
 
     return result;
@@ -99,19 +102,30 @@ export class ChiffreAffaireComponent implements OnInit{
         this.garageName = data.garageName;
         this.garageLocation = data.garageLocation;
 
-        this.invoiceservice.getChiffreAffaireJour(this.garageName, this.garageLocation, this.dateJour)
-        .subscribe({
-          next: data => {
-            this.caj = data[0];
-          }
-        })
+        this.invoiceservice
+          .getChiffreAffaireJour(
+            this.garageName,
+            this.garageLocation,
+            this.dateJour
+          )
+          .subscribe({
+            next: (data) => {
+              this.caj = data[0];
+            },
+          });
 
-        this.invoiceservice.getChiffreAffaireMois(this.garageName, this.garageLocation, this.moisNow, this.anneeNow)
-        .subscribe({
-          next: data => {
-            this.cam = data[0];
-          }
-        })
+        this.invoiceservice
+          .getChiffreAffaireMois(
+            this.garageName,
+            this.garageLocation,
+            this.moisNow,
+            this.anneeNow
+          )
+          .subscribe({
+            next: (data) => {
+              this.cam = data[0];
+            },
+          });
       },
       error: (e) => {
         console.log(e.error);
@@ -119,27 +133,36 @@ export class ChiffreAffaireComponent implements OnInit{
     });
   }
 
-
   ngOnInit(): void {
-      this.getAnnee(),
-      this.userme()
+    this.getAnnee(), this.userme();
   }
 
   getCAJ() {
-    this.invoiceservice.getChiffreAffaireJour(this.garageName, this.garageLocation, this.dateJour)
-    .subscribe({
-      next: data => {
-        this.caj = data[0];
-      }
-    })
+    this.invoiceservice
+      .getChiffreAffaireJour(
+        this.garageName,
+        this.garageLocation,
+        this.dateJour
+      )
+      .subscribe({
+        next: (data) => {
+          this.caj = data[0];
+        },
+      });
   }
 
   getCAM() {
-    this.invoiceservice.getChiffreAffaireMois(this.garageName, this.garageLocation, this.moisNow, this.anneeNow)
-    .subscribe({
-      next: data => {
-        this.cam = data[0];
-      }
-    })
+    this.invoiceservice
+      .getChiffreAffaireMois(
+        this.garageName,
+        this.garageLocation,
+        this.moisNow,
+        this.anneeNow
+      )
+      .subscribe({
+        next: (data) => {
+          this.cam = data[0];
+        },
+      });
   }
 }

@@ -12,8 +12,8 @@
                     <h2>Temps de réparation véhicule</h2>
                     <br><label>{{carRep?.carMark}} {{carRep?.carModel}} {{carRep?.color}}</label><br>
                     <label>Matricule : {{carRep?.numberPlate}}</label>
-                    <p>Temps de la réparation : <b> {{(timeRepair)}} min</b></p>
-                    <p>Temps moyen de la réparation : <b> {{averageRepair}} min</b></p>
+                    <p>Temps de la réparation : <b> {{(timeRepair)}} ({{unite}})</b></p>
+                    <p>Temps moyen de la réparation : <b> {{averageRepair}} ({{uniteM}})</b></p>
                 </div>
             </div>
         </div>
@@ -32,7 +32,8 @@
                     <p class="fw-normal mb-1">{{pr.entitled}}</p>
                 </td>
                 <td>
-                    <p>{{pr.status}}</p>
+                    <p *ngIf="pr.status === 'EnCours'">En cours</p>
+                    <p *ngIf="pr.status === 'Terminer'">Terminer</p>
                 </td>
             </tr>
         </tbody>

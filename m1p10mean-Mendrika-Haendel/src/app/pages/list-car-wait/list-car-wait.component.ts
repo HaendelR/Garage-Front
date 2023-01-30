@@ -28,7 +28,6 @@ export class ListCarWaitComponent {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
         this.me = data;
-        console.log(this.me.garageLocation);
         this.listCarWaitservice
           .getAllCarRepairWait(
             "EnAttente",
@@ -59,9 +58,7 @@ export class ListCarWaitComponent {
     this.listCarWaitservice
       .updateCarRepairStatus(numberPlate, status, "EnReparation")
       .subscribe({
-        next: (data) => {
-          console.log(data);
-        },
+        next: (data) => {},
         error: (e) => {
           console.log(e);
         },

@@ -22,6 +22,8 @@ export class DetailRepairAverageCarComponent {
   averageRepair = 0;
   timeRepair = 0;
   isLoading = true;
+  unite = "";
+  uniteM = "";
 
   getCar() {
     this.carDetailsReparation
@@ -30,10 +32,28 @@ export class DetailRepairAverageCarComponent {
         next: (data) => {
           this.carRep = data;
           if (data.duration) {
-            this.averageRepair = Number(
-              (data.duration / data.carProblem.length).toFixed(3)
-            );
-            this.timeRepair = Number(data.duration.toFixed(3));
+            if (Math.round(data.duration / data.carProblem.length) >= 60) {
+              this.averageRepair = Number(
+                Number(
+                  Math.round(data.duration / data.carProblem.length) / 60
+                ).toFixed(2)
+              );
+            } else {
+              this.averageRepair = Number(
+                Math.round(data.duration / data.carProblem.length)
+              );
+              this.uniteM = "Min";
+            }
+
+            if (data.duration >= 60) {
+              this.timeRepair = Number(
+                Number(Math.round(data.duration) / 60).toFixed(2)
+              );
+              this.unite = "H.Min";
+            } else {
+              this.timeRepair = Number(Math.round(data.duration));
+              this.unite = "Min";
+            }
           }
           this.isLoading = false;
         },

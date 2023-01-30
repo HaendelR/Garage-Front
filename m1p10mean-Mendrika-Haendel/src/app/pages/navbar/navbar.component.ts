@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   //   }
   // }
 
-  userme() {
+  async userme() {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
         this.me = data;
@@ -39,7 +39,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.check();
     this.userme();
   }
 

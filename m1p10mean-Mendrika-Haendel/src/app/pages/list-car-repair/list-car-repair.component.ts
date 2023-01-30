@@ -28,7 +28,6 @@ export class ListCarRepairComponent {
     this.authservice.userconnecte().subscribe({
       next: (data) => {
         this.me = data;
-        console.log(this.me.garageLocation);
         this.listCarRepairservice
           .getAllCarRepair(
             "EnReparation",

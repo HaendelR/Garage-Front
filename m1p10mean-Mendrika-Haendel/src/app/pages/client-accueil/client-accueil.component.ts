@@ -25,9 +25,9 @@ export class ClientAccueilComponent implements OnInit {
   description = "";
   garage = "";
 
-  message!: string; 
+  message!: string;
 
-  button = 'Déposer';
+  button = "Déposer";
   isLoading = false;
 
   constructor(
@@ -64,9 +64,8 @@ export class ClientAccueilComponent implements OnInit {
   }
 
   async depotVoiture() {
-
     this.isLoading = true;
-    this.button = 'En cours';
+    this.button = "En cours";
 
     var car = {
       clientName: this.me.name,
@@ -80,17 +79,13 @@ export class ClientAccueilComponent implements OnInit {
 
     this.voiture = car;
 
-    this.carservice.findCar(this.voiture.numberPlate)
-    .subscribe({
-      next : data => {
-
-        if(data === null) {
+    this.carservice.findCar(this.voiture.numberPlate).subscribe({
+      next: (data) => {
+        if (data === null) {
           this.carservice.insertCar(this.voiture).subscribe({
-            next: (data) => {
-              console.log(data);
-            },
+            next: (data) => {},
             error: (e) => {
-              console.log(e.error.error);
+              console.log(e.error);
             },
           });
 
@@ -114,14 +109,11 @@ export class ClientAccueilComponent implements OnInit {
           this.voitureDepot = cardepot;
 
           this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
-            next: (data) => {
-              console.log(data);
-            },
+            next: (data) => {},
             error: (e) => {
-              console.log(e.error.error);
+              console.log(e.error);
             },
           });
-
         } else {
           var gg = this.garage.split(":");
 
@@ -143,28 +135,23 @@ export class ClientAccueilComponent implements OnInit {
           this.voitureDepot = cardepot;
 
           this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
-            next: (data) => {
-              console.log(data);
-            },
+            next: (data) => {},
             error: (e) => {
-              console.log(e.error.error);
+              console.log(e.error);
             },
           });
-
         }
-
-      }, 
-      error: e => {
+      },
+      error: (e) => {
         console.log(e);
-      }
+      },
     });
 
-    
     this.message = "Votre véhicule est bien déposé pour la réparation";
-    
+
     setTimeout(() => {
       this.isLoading = false;
-      this.button = 'Submit';
-    }, 5000)
+      this.button = "Submit";
+    }, 5000);
   }
 }
