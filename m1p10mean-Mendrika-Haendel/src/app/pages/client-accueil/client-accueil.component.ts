@@ -25,6 +25,13 @@ export class ClientAccueilComponent implements OnInit {
   description = "";
   garage = "";
 
+  isGarage=false;
+  isCarMark=false;
+  isNumberPlate=false;
+  isCarModel=false;
+  isColor=false;
+  isDesc=false;
+
   message!: string;
 
   button = "Déposer";
@@ -64,94 +71,109 @@ export class ClientAccueilComponent implements OnInit {
   }
 
   async depotVoiture() {
-    this.isLoading = true;
-    this.button = "En cours";
+    if(this.garage === null || this.garage === "") this.isGarage = true; else this.isGarage = false;
+    if(this.carMark === null || this.carMark === "") this.isCarMark = true; else this.isCarMark = false;
+    if(this.carModel === null || this.carModel === "") this.isCarModel = true; else this.isCarModel = false;
+    if(this.numberPlate === null || this.numberPlate === "") this.isNumberPlate = true; else this.isNumberPlate = false;
+    if(this.color === null || this.color === "") this.isColor = true; else this.isColor = false;
+    if(this.description === null || this.description === "") this.isDesc = true; else this.isDesc = false;
 
-    var car = {
-      clientName: this.me.name,
-      clientSurname: this.me.surname,
-      clientContact: this.me.numberPhone,
-      carMark: this.carMark,
-      carModel: this.carModel,
-      color: this.color,
-      numberPlate: this.numberPlate,
-    };
+    if(!this.isCarMark && !this.isCarModel && !this.isColor && !this.isDesc && !this.isGarage && !this.isNumberPlate) {
+      this.isLoading = true;
+      this.button = "En cours";
+      this.isGarage=false;
+      this.isCarMark=false;
+      this.isNumberPlate=false;
+      this.isCarModel=false;
+      this.isColor=false;
+      this.isDesc=false;
 
-    this.voiture = car;
+      var car = {
+        clientName: this.me.name,
+        clientSurname: this.me.surname,
+        clientContact: this.me.numberPhone,
+        carMark: this.carMark,
+        carModel: this.carModel,
+        color: this.color,
+        numberPlate: this.numberPlate,
+      };
 
-    this.carservice.findCar(this.voiture.numberPlate).subscribe({
-      next: (data) => {
-        if (data === null) {
-          this.carservice.insertCar(this.voiture).subscribe({
-            next: (data) => {},
-            error: (e) => {
-              console.log(e.error);
-            },
-          });
+      this.voiture = car;
 
-          var gg = this.garage.split(":");
+      this.carservice.findCar(this.voiture.numberPlate).subscribe({
+        next: (data) => {
+          if (data === null) {
+            this.carservice.insertCar(this.voiture).subscribe({
+              next: (data) => {},
+              error: (e) => {
+                console.log(e.error);
+              },
+            });
 
-          var cardepot = {
-            garageName: gg[0],
-            garageLocation: gg[1],
-            clientName: this.me.name,
-            clientSurname: this.me.surname,
-            clientContact: this.me.numberPhone,
-            clientEmail: this.me.email,
-            carMark: this.carMark,
-            carModel: this.carModel,
-            color: this.color,
-            numberPlate: this.numberPlate,
-            description: this.description,
-            status: "depose",
-          };
+            var gg = this.garage.split(":");
 
-          this.voitureDepot = cardepot;
+            var cardepot = {
+              garageName: gg[0],
+              garageLocation: gg[1],
+              clientName: this.me.name,
+              clientSurname: this.me.surname,
+              clientContact: this.me.numberPhone,
+              clientEmail: this.me.email,
+              carMark: this.carMark,
+              carModel: this.carModel,
+              color: this.color,
+              numberPlate: this.numberPlate,
+              description: this.description,
+              status: "depose",
+            };
 
-          this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
-            next: (data) => {},
-            error: (e) => {
-              console.log(e.error);
-            },
-          });
-        } else {
-          var gg = this.garage.split(":");
+            this.voitureDepot = cardepot;
 
-          var cardepot = {
-            garageName: gg[0],
-            garageLocation: gg[1],
-            clientName: this.me.name,
-            clientSurname: this.me.surname,
-            clientContact: this.me.numberPhone,
-            clientEmail: this.me.email,
-            carMark: this.carMark,
-            carModel: this.carModel,
-            color: this.color,
-            numberPlate: this.numberPlate,
-            description: this.description,
-            status: "depose",
-          };
+            this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
+              next: (data) => {},
+              error: (e) => {
+                console.log(e.error);
+              },
+            });
+          } else {
+            var gg = this.garage.split(":");
 
-          this.voitureDepot = cardepot;
+            var cardepot = {
+              garageName: gg[0],
+              garageLocation: gg[1],
+              clientName: this.me.name,
+              clientSurname: this.me.surname,
+              clientContact: this.me.numberPhone,
+              clientEmail: this.me.email,
+              carMark: this.carMark,
+              carModel: this.carModel,
+              color: this.color,
+              numberPlate: this.numberPlate,
+              description: this.description,
+              status: "depose",
+            };
 
-          this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
-            next: (data) => {},
-            error: (e) => {
-              console.log(e.error);
-            },
-          });
-        }
-      },
-      error: (e) => {
-        console.log(e);
-      },
-    });
+            this.voitureDepot = cardepot;
 
-    this.message = "Votre véhicule est bien déposé pour la réparation";
+            this.cardepotservice.insertCarDepot(this.voitureDepot).subscribe({
+              next: (data) => {},
+              error: (e) => {
+                console.log(e.error);
+              },
+            });
+          }
+        },
+        error: (e) => {
+          console.log(e);
+        },
+      });
 
-    setTimeout(() => {
-      this.isLoading = false;
-      this.button = "Submit";
-    }, 5000);
+      this.message = "Votre véhicule est bien déposé pour la réparation";
+
+      setTimeout(() => {
+        this.isLoading = false;
+        this.button = "Submit";
+      }, 5000);
+    }
   }
 }

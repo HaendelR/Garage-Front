@@ -16,6 +16,8 @@ export class AccueilComponent implements OnInit {
   button = 'Se connecter';
   isLoading=false;
 
+  client=true;
+
   constructor(
     private router : Router,
     private authservice: AuthentificationService,
@@ -56,7 +58,25 @@ export class AccueilComponent implements OnInit {
 
     setTimeout(() => {
       this.isLoading = false;
-      this.button = 'Submit';
-    }, 5000)
+      this.button = 'Se connecter';
+    }, 8000)
+  }
+
+  loginClient() {
+    this.login = "jeanrakoto703@gmail.com";
+    this.mdp = "123456";
+    this.client = true;
+  }
+
+  loginAtelier() {
+    this.login = "atelier.andoharanofotsy@gmail.com";
+    this.mdp = "123456";
+    this.client = false;
+  }
+
+  loginFinance() {
+    this.login = "finance.andoharanofotsy@gmail.com";
+    this.mdp = "123456";
+    this.client = false;
   }
 }

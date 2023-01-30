@@ -40,10 +40,31 @@
                                  </div>
                               </form>
                               <br>
-                              <div class="transfot">
+                              <div class="transfot" *ngIf="client">
                                  <p>Pas encore de compte? <a role="button" (click)="sinscrire()"
                                        style="cursor: pointer;">Inscrivez-vous.</a></p>
                               </div>
+
+                              <br>
+
+                              <div class="form-inline" style="display: flex; justify-content: right;">
+                                 <form (ngSubmit)="loginClient()">
+                                    <div class="form-group mx-sm-1">
+                                       <button type="submit" class="btn btn-primary" >Client</button>                                   
+                                    </div>
+                                 </form>
+                                 <form (ngSubmit)="loginAtelier()">
+                                    <div class="form-group mx-sm-1">
+                                       <button type="submit" class="btn btn-success"  >Atelier</button>                                   
+                                    </div>
+                                 </form>
+                                 <form (ngSubmit)="loginFinance()">
+                                    <div class="form-group mx-sm-1">
+                                       <button type="submit" class="btn btn-secondary"  >Finance</button>                                   
+                                    </div>
+                                 </form>
+                               </div>
+
                            </div>
                         </div>
                      </div>

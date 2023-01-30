@@ -7,7 +7,9 @@
            <div class="titlepage">
               <h2>Déposer votre véhicule pour la réparation</h2>
            </div>
-           <span>{{message}}</span>
+           <div class="alert alert-success" *ngIf="message">
+            {{message}}
+          </div>
         </div>
      </div>
   </div>
@@ -18,24 +20,42 @@
               <form id="request" class="main_form" (ngSubmit)="depotVoiture()">
                  <div class="row">
                     <div class="col-md-12">
-                      <select name="garage" id="garage" class="contactus" [(ngModel)]="garage">
-                        <option>Localisation du garage</option>
-                        <option *ngFor="let g of garages" [value]="g.name+':'+g.location" class="contactus">{{g.name+' '+g.location}}</option>
-                      </select>
+                        <div class="alert alert-danger" *ngIf="isGarage">
+                           La localisation du garage est requise.
+                        </div>
+                        <select name="garage" id="garage" class="contactus" [(ngModel)]="garage">
+                           <option>Localisation du garage</option>
+                           <option *ngFor="let g of garages" [value]="g.name+':'+g.location" class="contactus">{{g.name+' '+g.location}}</option>
+                        </select>
                     </div>
                     <div class="col-md-12 ">
-                       <input class="contactus" placeholder="Matricule de la voiture" type="text" [(ngModel)]="numberPlate" name="numberPlate">
+                        <div class="alert alert-danger" *ngIf="isNumberPlate">
+                           La matricule est requise.
+                        </div>
+                        <input class="contactus" placeholder="Matricule de la voiture" type="text" [(ngModel)]="numberPlate" name="numberPlate">
                     </div>
                     <div class="col-md-12">
+                        <div class="alert alert-danger" *ngIf="isCarMark">
+                           La marque est requise.
+                        </div>
                        <input class="contactus" placeholder="Marque de la voiture" type="text" [(ngModel)]="carMark" name="carMark">
                     </div>
                     <div class="col-md-12">
+                        <div class="alert alert-danger" *ngIf="isCarModel">
+                           Le modèle est requis.
+                        </div>
                        <input class="contactus" placeholder="Modèle de la voiture" type="text" [(ngModel)]="carModel" name="carModel">
                     </div>
                     <div class="col-md-12">
+                        <div class="alert alert-danger" *ngIf="isColor">
+                           La couleur est requise.
+                        </div>
                       <input class="contactus" placeholder="Couleur de la voiture" type="text" [(ngModel)]="color" name="color">
                    </div>
                     <div class="col-md-12">
+                        <div class="alert alert-danger" *ngIf="isDesc">
+                           La description est requise.
+                        </div>
                        <!-- <input class="contactusmess" placeholder="Message" type="type" Message="Name"> -->
                        <textarea name="description" id="description" cols="30" rows="10" class="contactusmess" [(ngModel)]="description" placeholder="Description des dégats"></textarea>
                     </div>
